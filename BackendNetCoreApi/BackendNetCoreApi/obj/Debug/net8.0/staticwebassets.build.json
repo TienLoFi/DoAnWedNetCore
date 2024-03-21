@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XT7MxINjvUNnddJViTxgGkOG6jOLrthbM3L9pbCBZUY=",
+  "Source": "BackendNetCoreApi",
+  "BasePath": "_content/BackendNetCoreApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
