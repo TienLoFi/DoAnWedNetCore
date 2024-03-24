@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendNetCoreApi.Data;
 using BackendNetCoreApi.Models;
-using Microsoft.AspNetCore.Cors;
 
 namespace BackendNetCoreApi.Controllers
 {
-    [EnableCors("AllowReactApp")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
@@ -49,7 +47,7 @@ namespace BackendNetCoreApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
-            if (id != product.ProductId)
+            if (id != product.Id)
             {
                 return BadRequest();
             }
@@ -61,7 +59,7 @@ namespace BackendNetCoreApi.Controllers
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
-            {   
+            {
                 if (!ProductExists(id))
                 {
                     return NotFound();
@@ -83,7 +81,7 @@ namespace BackendNetCoreApi.Controllers
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
+            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
         // DELETE: api/Products/5
@@ -104,7 +102,7 @@ namespace BackendNetCoreApi.Controllers
 
         private bool ProductExists(int id)
         {
-            return _context.Products.Any(e => e.ProductId == id);
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

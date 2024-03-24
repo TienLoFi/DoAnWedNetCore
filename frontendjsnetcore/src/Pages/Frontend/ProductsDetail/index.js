@@ -6,6 +6,7 @@ function ProductDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     // const [products, setProducts] = useState([]);
+  
 
     useEffect(function () {
 
@@ -86,7 +87,7 @@ function ProductDetail() {
         </aside>
         <main className="col-md-6">
           <article className="product-info-aside">
-            <h2 className="title mt-3">{product.productName} </h2>
+            <h2 className="title mt-3">{product.name} </h2>
             <div className="rating-wrap my-3">
               <ul className="rating-stars">
                 <li style={{ width: "80%" }} className="stars-active">
@@ -108,7 +109,7 @@ function ProductDetail() {
             </div>{" "}
             {/* rating-wrap.// */}
             <div className="mb-3">
-              <var className="price h4">{product.productPrice}</var>
+              <var className="price h4">{product.price}</var>
               <span className="text-muted">USD 562.65 incl. VAT</span>
             </div>{" "}
             {/* price-detail-wrap .// */}
