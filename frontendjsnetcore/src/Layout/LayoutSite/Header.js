@@ -1,6 +1,44 @@
-import logo from '../../logo.svg';
-
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from "react";
+import { FaRegHeart } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import ProductService from '../../services/ProductServices';
+import { urlImageFE } from '../../config';
 function Header() {
+    const navigate = useNavigate();
+    const [username, setUsername] = useState(null);
+    const [searchResults, setSearchResults] = useState([]);
+    const [keyword, setKeyword] = useState('');
+    const [cartItemCount, setCartItemCount] = useState(0);
+
+useEffect(() => {
+  // Function to check token status
+
+  const token = Cookies.get('jwtToken');
+  if (token) {
+      try {
+          const decoded = jwtDecode(token);
+          const userUsername = decoded.UserName;
+          setUsername(userUsername);
+
+      } catch (error) {
+          console.error('Error decoding JWT token:', error);
+      }
+  }
+
+}, []);
+
+const Logout = () => {
+  // Xóa token từ cookies
+  Cookies.remove("jwtToken");
+  
+  // Chuyển hướng đến trang đăng nhập
+  navigate('/login');
+  window.location.reload();
+};
+
+
   return (
     <header className="section-header">
         <section className="header-main border-bottom">
@@ -31,14 +69,26 @@ function Header() {
               <div className="col-xl-4 col-lg-4 col-md-6">
                 <div className="widgets-wrap float-md-right">
                   <div className="widget-header mr-3">
-                    <a href="#" className="widget-view">
-                      <div className="icon-area">
-                        <i className="fa fa-user" />
-                        <span className="notify">3</span>
-                      </div>
-                      <small className="text"> My profile </small>
+                  {username ? (
+                    <a href="" className="widget-view">
+                   
+                      <b className="text"> {username}</b> 
+                   
                     </a>
+                    
+                      ) : (
+                        
+                        <li className='pl-4'>
+
+                            <Link to="/login">
+                                <i className="fa fa-user pl-2"></i> Login
+                            </Link>
+
+                        </li>
+                    )}
                   </div>
+                  <button onClick={Logout} className="btn btn-sm btn-outline-secondary">Logout</button> 
+                
                   <div className="widget-header mr-3">
                     <a href="#" className="widget-view">
                       <div className="icon-area">

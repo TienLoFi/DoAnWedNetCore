@@ -7,9 +7,9 @@ function Productitem(props) {
        
             <div className="col-md-3 pt-4 pb-4">
                 <div className="product-item border" style={{ borderTopRightRadius: '15px', background:'white' }}>
-                    {/* <Link to={"/chi-tiet-san-pham/"+props.product.id}>
-                        <img src={urlImageFE+"products/"+ props.product.image} className="img-fluid" alt="hinh san pham"/>
-                    </Link> */}
+                    <Link to={"/chi-tiet-san-pham/"+props.product.id}>
+                        <img src={urlImageFE+ props.product.image} className="img-fluid" alt="hinh san pham"/>
+                    </Link>
                     <Link to={"/chi-tiet-san-pham/"+props.product.id} style={{textDecoration:'none', color:"black"}}>
                    
                     <h3 className="fs-5 p-2 text-center product-name">{shortenedName}</h3>

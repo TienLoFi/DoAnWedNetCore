@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-14-pro_2__5.png",
+      "PackagePath": "staticwebassets\\images\\iphone-14-pro_2__5.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\oppo-a3s-32gb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\oppo-a3s-32gb-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\oppo-f9-red-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\oppo-f9-red-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-a8-plus-2018-gold-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\samsung-galaxy-a8-plus-2018-gold-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-j4-plus-pink-400x400.jpg",
+      "PackagePath": "staticwebassets\\images\\samsung-galaxy-j4-plus-pink-400x400.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-j8-600x600-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\samsung-galaxy-j8-600x600-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\xiaomi-mi-8-1-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\xiaomi-mi-8-1-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\xiaomi-mi-8-lite-black-1-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\xiaomi-mi-8-lite-black-1-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\xiaomi-redmi-5-plus-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\xiaomi-redmi-5-plus-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\xiaomi-redmi-note-5-pro-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\xiaomi-redmi-note-5-pro-600x600.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BackendNetCoreApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BackendNetCoreApi.props",
+      "PackagePath": "build\\BackendNetCoreApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BackendNetCoreApi.props",
+      "PackagePath": "buildMultiTargeting\\BackendNetCoreApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BackendNetCoreApi.props",
+      "PackagePath": "buildTransitive\\BackendNetCoreApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

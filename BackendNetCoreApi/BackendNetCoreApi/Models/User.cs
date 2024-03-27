@@ -7,7 +7,8 @@ namespace BackendNetCoreApi.Models
     {
         [Key]
         public int Id { get; set; }
-        public string UserName { get; set; }
+  
+        public string UserName { get;  set; }
         public string Password { get; set; }
         public string? Gender { get; set; }
         public string Email { get; set; }
@@ -18,5 +19,6 @@ namespace BackendNetCoreApi.Models
         public int? UpdateBy { get; set; }
         [DefaultValue(2)]
         public int? Status { get; set; }
+  
     }
 }

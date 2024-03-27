@@ -266,3 +266,5 @@ D:\Workspace\WED\ASP.NET\DoAnAsp\BackendNetCoreApi\BackendNetCoreApi\bin\Debug\n
 D:\Workspace\WED\ASP.NET\DoAnAsp\BackendNetCoreApi\BackendNetCoreApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\Workspace\WED\ASP.NET\DoAnAsp\BackendNetCoreApi\BackendNetCoreApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\Workspace\WED\ASP.NET\DoAnAsp\BackendNetCoreApi\BackendNetCoreApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Workspace\WED\ASP.NET\DoAnAsp\BackendNetCoreApi\BackendNetCoreApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Workspace\WED\ASP.NET\DoAnAsp\BackendNetCoreApi\BackendNetCoreApi\bin\Debug\net8.0\BackendNetCoreApi.staticwebassets.runtime.json

@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import ProductService from '../../../services/ProductServices';
+import { urlImageFE } from "../../../config";
 function ProductDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
@@ -56,7 +57,8 @@ function ProductDetail() {
                 <div>
                   {" "}
                   <a href="#">
-                    <img src="../../../../public/../../../../public/imagesitems/15-2.jpg" />
+                  <img src={urlImageFE+ product.image} className="img-fluid" alt="hinh san pham"/>
+
                   </a>
                 </div>
               </div>{" "}
