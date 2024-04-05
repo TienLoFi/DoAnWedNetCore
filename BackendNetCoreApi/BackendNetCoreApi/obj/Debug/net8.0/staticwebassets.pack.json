@@ -1,28 +1,28 @@
 {
   "Files": [
     {
-      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-14-pro_2__5.png",
-      "PackagePath": "staticwebassets\\images\\iphone-14-pro_2__5.png"
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-13_2_.webp",
+      "PackagePath": "staticwebassets\\images\\iphone-13_2_.webp"
     },
     {
-      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\oppo-a3s-32gb-600x600.jpg",
-      "PackagePath": "staticwebassets\\images\\oppo-a3s-32gb-600x600.jpg"
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-14-pro_2__5 (2).png",
+      "PackagePath": "staticwebassets\\images\\iphone-14-pro_2__5 (2).png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-14-pro_2__5.png",
+      "PackagePath": "staticwebassets\\images\\iphone-14-pro_2__5.png"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\oppo-f9-red-600x600.jpg",
       "PackagePath": "staticwebassets\\images\\oppo-f9-red-600x600.jpg"
     },
     {
-      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-a8-plus-2018-gold-600x600.jpg",
-      "PackagePath": "staticwebassets\\images\\samsung-galaxy-a8-plus-2018-gold-600x600.jpg"
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-m14.webp",
+      "PackagePath": "staticwebassets\\images\\samsung-galaxy-m14.webp"
     },
     {
-      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-j4-plus-pink-400x400.jpg",
-      "PackagePath": "staticwebassets\\images\\samsung-galaxy-j4-plus-pink-400x400.jpg"
-    },
-    {
-      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-j8-600x600-600x600.jpg",
-      "PackagePath": "staticwebassets\\images\\samsung-galaxy-j8-600x600-600x600.jpg"
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-z-flip-5-256gb_1_5.webp",
+      "PackagePath": "staticwebassets\\images\\samsung-galaxy-z-flip-5-256gb_1_5.webp"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\xiaomi-mi-8-1-600x600.jpg",

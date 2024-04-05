@@ -1,28 +1,31 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LayoutAdmin from './Layout/LayoutAdmin';
 import RouterSite from './Router';
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LayoutSite from './Layout/LayoutSite'
-//import LayoutAdmin from './layouts/LayoutAdmin';
+import LayoutSite from './Layout/LayoutSite';
+import Login from './Pages/Frontend/Login';
+import Register from './Pages/Frontend/Register';
+
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>  
-      <Route path='/' element={<LayoutSite/>}>
+      <Routes>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/register' element={<Register />}/>    
+       
+        <Route path='/' element={<LayoutSite/>}>
           {RouterSite.RouterPublic.map(function(route,index){
             const Page=route.conponent;
             return <Route key={index} path={route.path} element={<Page/>} />
           })}
-        </Route>  
-        {/* <Route path="/dang-nhap" element={<Login/>}></Route> */}
-        {/* <Route path="/admin" element={<LayoutAdmin />}>
-          {RouterApp.RouterPrivate.map(function(route, index) {
-            const Page = route.component;
+        </Route>
+        <Route path='/admin' element={<LayoutAdmin/>}>
+          {RouterSite.RouterPrivate.map(function(route,index){
+            const Page=route.conponent;
             return <Route key={index} path={route.path} element={<Page/>} />
           })}
-7894
-        </Route> */}
+        </Route>
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,8 @@
 import RouterPublic from "./RouterPublic";
-//import RouterPrivate from "./RouterPrivate";
+import RouterPrivate from "./RouterPrivate";
 
 const RouterApp ={
     RouterPublic  :RouterPublic,
-    //RouterPrivate:RouterPrivate
+    RouterPrivate:RouterPrivate
 }
 export default RouterApp

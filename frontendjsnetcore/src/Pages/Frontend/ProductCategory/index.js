@@ -3,27 +3,24 @@
   import CategoryService from "../../../services/CategoryServices";
   import { useParams } from "react-router-dom";
   import ListCategory from "../../../Layout/LayoutSite/ListCategory";
+import { urlImageFE } from "../../../config";
 
   function ProductCategory() {
-      const { id } = useParams();
-      const [products, setProducts] = useState([]);
-      const [title, setTitle] = useState("");
-      document.title = title;
-      useEffect(function () {
-          (async function () {
-              try {
-                  const infocategory = await CategoryService.getById(id);
-                  const catid = infocategory.data.id;
-                  setTitle(infocategory.data.name);
-                  const infoproduct = await ProductService.getProductHome(catid);
-                  setProducts(infoproduct.data);  
-              } catch (error) {
-                  setProducts([]);
-              }
-          })();
+    const {id} = useParams();
+    const [products, setProduct] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await ProductService.getProductByCategoryParent(id);
+                setProduct((result.data));
+            }
+            catch (error) {
+                console.error(error);
+            }
+        };
 
-      }, [id]);
-      if (products.length === 0) {
+        fetchData();
+    }, [id])
           return (
               <>
               {/* ========================= SECTION CONTENT ========================= */}
@@ -280,142 +277,39 @@
                       {/* filter-group .// */}
                     </aside>{" "}
                     {/* col.// */}
-                    <main className="col-md-10">
-                      <header className="mb-3">
-                        <div className="form-inline">
-                          <strong className="mr-md-auto">32 Items found </strong>
-                          <select className="mr-2 form-control">
-                            <option>Latest items</option>
-                            <option>Trending</option>
-                            <option>Most Popular</option>
-                            <option>Cheapest</option>
-                          </select>
-                          <div className="btn-group">
-                            <a
-                              href="page-listing-grid.html"
-                              className="btn btn-light"
-                              data-toggle="tooltip"
-                              title="List view"
-                            >
-                              <i className="fa fa-bars" />
-                            </a>
-                            <a
-                              href="page-listing-large.html"
-                              className="btn btn-light active"
-                              data-toggle="tooltip"
-                              title="Grid view"
-                            >
-                              <i className="fa fa-th" />
-                            </a>
-                          </div>
-                        </div>
-                      </header>
-                      {/* sect-heading */}
-                      <article className="card card-product-list">
-                        <div className="row no-gutters">
-                          <aside className="col-md-3">
-                            <a href="#" className="img-wrap">
-                              <span className="badge badge-danger"> NEW </span>
-                              <img src="images/items/1.jpg" />
-                            </a>
-                          </aside>{" "}
-                          {/* col.// */}
-
-          
-                          <div className="col-md-6">
-                            <div className="info-main">
-                              <a href="#" className="h5 title">
-                                {" "}
-
-                              </a>
-                              <div className="rating-wrap mb-2">
-                                <ul className="rating-stars">
-                                  <li style={{ width: "100%" }} className="stars-active">
-                                    <i className="fa fa-star" />{" "}
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />{" "}
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                  </li>
-                                  <li>
-                                    <i className="fa fa-star" />{" "}
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />{" "}
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                  </li>
-                                </ul>
-                                <div className="label-rating">9/10</div>
-                              </div>{" "}
-                              {/* rating-wrap.// */}
-                              <p className="mb-3">
-                                <span className="tag">
-                                  {" "}
-                                  <i className="fa fa-check" /> Verified
-                                </span>
-                                <span className="tag"> 5 Years </span>
-                                <span className="tag"> 80 reviews </span>
-                                <span className="tag"> Russia </span>
-                              </p>
-                              <p>
-                              {products.description}
-                              </p>
-                            </div>{" "}
-                            {/* info-main.// */}
-                          </div>{" "}
-                          {/* col.// */}
-            </div> </article>
-              
-                      {/* card-product .// */}
-                      <nav className="mb-4" aria-label="Page navigation sample">
-                        <ul className="pagination">
-                          <li className="page-item disabled">
-                            <a className="page-link" href="#">
-                              Previous
-                            </a>
-                          </li>
-                          <li className="page-item active">
-                            <a className="page-link" href="#">
-                              1
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              2
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              3
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              4
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              5
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              Next
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                      <div className="box text-center">
-                        <p>Did you find what you were looking for？</p>
-                        <a href="" className="btn btn-light">
-                          Yes
-                        </a>
-                        <a href="" className="btn btn-light">
-                          No
-                        </a>
-                      </div>
-                    </main>{" "}
+                    
+                   <main className="col-md-10">
+                   {/* Điều chỉnh phần header tại đây nếu cần */}
+                   {products.map(function(product, index) {
+                       return (
+                           <article key={index} className="card card-product-list">
+                               <div className="row no-gutters">
+                                   <aside className="col-md-3">
+                                       <a href="#" className="img-wrap">
+                                           <span className="badge badge-danger">{product.name}</span>
+                                           <img src={urlImageFE + "product/" + product.name} alt={product.name} />
+                                       </a>
+                                   </aside>{" "}
+                                   {/* col.// */}
+                                   <div className="col-md-6">
+                                       <div className="info-main">
+                                           <a href="#" className="h5 title">
+                                               {/* Hiển thị tiêu đề sản phẩm tại đây */}
+                                           </a>
+                                           {/* Hiển thị thông tin sản phẩm và mô tả tại đây */}
+                                       </div>{" "}
+                                       {/* info-main.// */}
+                                   </div>{" "}
+                                   {/* col.// */}
+                               </div>{" "}
+                               {/* row.// */}
+                           </article>
+                       );
+                   })}
+                   {/* Điều chỉnh phần pagination và nút "Did you find what you were looking for?" tại đây nếu cần */}
+               </main>
+               
+                      
                     {/* col.// */}
                   </div>
                 </div>{" "}
@@ -463,7 +357,7 @@
           );
       }
 
-  }
+  
 
   export default ProductCategory;
 
