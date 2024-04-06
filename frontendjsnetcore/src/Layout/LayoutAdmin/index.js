@@ -29,17 +29,12 @@ function LayoutAdmin() {
             </div>
 
             {/* Footer */}
-            <footer className="main-footer">
-              <strong>
-                Copyright © 2014-2021{" "}
-                <a href="https://adminlte.io">AdminLTE.io</a>.
-              </strong>
-              All rights reserved.
-              <div className="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0
-              </div>
-              
-            </footer>
+            <div className="text-center" style={{ fontSize: 13 }}>
+        <p>
+          <b>Copyright Phần mềm quản lý bán hàng | Dev By Ngọc Tiến</b>
+        </p>
+      </div>
+      
             {/* End of Footer */}
           </div>
           {/* End of Main Content */}

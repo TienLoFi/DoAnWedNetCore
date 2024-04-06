@@ -1,59 +1,55 @@
 import httpAxios from "../httpAxios";
 
-function getAll() {
-  return httpAxios.get("Products");
+//BackEnd
+function getAll(){
+    return httpAxios.get('Products/GetProducts');
+}
+function getById(id){
+    return httpAxios.get(`Products/GetProduct/${id}`)
+}
+function create(data){
+    return httpAxios.post('Products/PostProduct',data);
+
+}
+function update(data, id){
+    return httpAxios.put(`Products/PutProduct/${id}`, data);
+}
+function remove(id){
+    return httpAxios.delete(`Products/DeleteProduct/${id}`);
+}
+//FrontEnd
+function getProductHome(categoryId){
+    return httpAxios.get(`Products/GetProductByCategory/${categoryId}`);
 }
 
-function getById(id) {
-  return httpAxios.get("Products/" + id);
+function getProductAll(limit, page){
+    return httpAxios.get(`Products/GetAllProduct/${limit}/${page}`);
 }
 
-function create(data) {
-  return httpAxios.post("product/store", data);
-}
-function update(data, id) {
-  return httpAxios.post("product/update/" + id, data);
-}
-function remove(id) {
-  return httpAxios.delete("product/destroy/" + id);
-}
-function getProductHome(limit, category_id)
-{
-    return httpAxios.get(`product_list/${limit}/${category_id}`)
-}
-function getProductAll(limit, page=1)
-{
-    return httpAxios.get(`product_all/${limit}/${page}`);
+function getProductByCategoryParent(categoryIdParent,limit, page){
+    return httpAxios.get(`Products/GetProductByCategoryParent/${categoryIdParent}/${limit}/${page}`);
 }
 
-function getProductBySlug(slug){
-  return httpAxios.get(`product_detail/${slug}`);
+function Search(keyWord){
+    return httpAxios.get(`Products/Search/${keyWord}`);
 }
 
-function getProductSearch(key)
-{
-    return httpAxios.get(`product_search/${key}`);
+function GetProductSale(){
+    return httpAxios.get('Products/GetSaledProducts');
 }
-function getProductByBrandId(limit, brand_id)
-{
-    return httpAxios.get(`product_brand/${limit}/${brand_id}`);
-}
-function getProductByCategoryId(limit, category_id)
-{
-    return httpAxios.get(`product_category/${limit}/${category_id}`);
-}
-const ProductServices = {
-    getProductBySlug:getProductBySlug,
-  getAll: getAll,
-  getById: getById,
-  create: create,
-  update: update,
-  remove: remove,
-  getProductHome:getProductHome,
-  getProductAll:getProductAll,
-  getProductSearch:getProductSearch,
-  getProductByBrandId:getProductByBrandId,
-  getProductByCategoryId:getProductByCategoryId,
-};
 
-export default ProductServices;
+const ProductService ={
+    
+    getAll:getAll,
+    getById:getById,
+    create:create,
+    update:update,
+    remove:remove,
+    getProductHome:getProductHome,
+    getProductAll:getProductAll,
+    getProductByCategoryParent:getProductByCategoryParent,
+    Search:Search,
+    GetProductSale:GetProductSale
+}
+
+export default ProductService;
