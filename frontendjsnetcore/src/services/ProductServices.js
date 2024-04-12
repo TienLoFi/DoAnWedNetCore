@@ -18,9 +18,9 @@ function remove(id){
     return httpAxios.delete(`Products/DeleteProduct/${id}`);
 }
 //FrontEnd
-function getProductHome(categoryId){
-    return httpAxios.get(`Products/GetProductByCategory/${categoryId}`);
-}
+// function getProductHome(categoryId){
+//     return httpAxios.get(`Products/GetProductByCategory/${categoryId}`);
+// }
 
 function getProductAll(limit, page){
     return httpAxios.get(`Products/GetAllProduct/${limit}/${page}`);
@@ -37,7 +37,9 @@ function Search(keyWord){
 function GetProductSale(){
     return httpAxios.get('Products/GetSaledProducts');
 }
-
+function getProductHome(categoryId,limit,page){
+    return httpAxios.get(`Products/GetProductByCategory/category/${categoryId}/${limit}/${page}`);
+}
 const ProductService ={
     
     getAll:getAll,

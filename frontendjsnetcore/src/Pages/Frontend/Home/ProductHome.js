@@ -5,7 +5,7 @@ import Productitem from "../Product/ProductItem";
 
 function ProductHome(props) {
     const [products, setProduct] = useState([]);
-    const [limit, setLimit] = useState(8);
+    const [limit, setLimit] = useState(1);
     const [page, setPage] = useState(1);
     
     useEffect(() => {

@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -12,6 +12,9 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using BackendNetCoreApi.Data;
 using BackendNetCoreApi.Models;
+using BackendNetCoreApi.Migrations;
+using Azure;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BackendNetCoreApi.Controllers
 {
@@ -55,6 +58,45 @@ namespace BackendNetCoreApi.Controllers
             return product;
         }
 
+        [HttpGet("category/{categoryId}/{limit}/{page}")]
+        public async Task<ActionResult<IEnumerable<Products>>> GetProductByCategory(int categoryId, int limit, int page)
+        {
+            try
+            {
+                if (categoryId != 0)
+                {
+                    if (limit <= 0 || page <= 0)
+                    {
+                        return BadRequest("Invalid limit or page values. Both should be greater than zero.");
+                    }
+
+                    var skipCount = (page - 1) * limit;
+
+                    var products = await _context.Products
+                        .Where(p => p.Category_Id == categoryId)
+                        .Skip(skipCount)
+                        .Take(limit)
+                        .ToListAsync();
+
+                    if (products == null || !products.Any())
+                    {
+                        return NotFound("No products found for the specified category and page.");
+                    }
+
+                    return Ok(products);
+                }
+                else
+                {
+                    return BadRequest("Danh mục không được chỉ định hoặc không hợp lệ.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+     
+
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -78,6 +120,10 @@ namespace BackendNetCoreApi.Controllers
                 }
 
                 existingProduct.Image = uniqueFileName;
+            }
+            else // Nếu không có hình mới được tải lên, giữ nguyên giá trị hình ảnh từ cơ sở dữ liệu
+            {
+                existingProduct.Image = existingProduct.Image;
             }
 
             existingProduct.Category_Id = product.Category_Id;

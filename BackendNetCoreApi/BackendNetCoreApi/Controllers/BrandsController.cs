@@ -45,49 +45,94 @@ namespace BackendNetCoreApi.Controllers
         // PUT: api/Brands/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBrand(int id, Brand brand)
+        public async Task<IActionResult> PutBrand(int id, [FromForm] Brand brand, IFormFile image)
         {
-            if (id != brand.Id)
+            //if (id != brand.Id)
+            //{
+            //    return BadRequest("Id không hợp lệ");
+            //}
+
+            var existingBrand = await _context.Brands.FindAsync(id);
+
+            if (existingBrand == null)
             {
-                return BadRequest();
+                return NotFound("Không tìm thấy thương hiệu");
             }
 
-            _context.Entry(brand).State = EntityState.Modified;
+            if (image != null)
+            {
+                var uniqueFileName = /*Guid.NewGuid().ToString() + "_" + */image.FileName;
+                var filePath = Path.Combine("wwwroot/images/brands", uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(fileStream);
+                }
+
+                existingBrand.Image = uniqueFileName;
+            }
+
+            existingBrand.Name = brand.Name;
+            //existingBrand.Slug = brand.Slug;
+            existingBrand.Sort_order = brand.Sort_order;
+            existingBrand.Description = brand.Description;
+            existingBrand.UpdateBy = brand.UpdateBy;
+            existingBrand.Status = brand.Status;
 
             try
             {
                 await _context.SaveChangesAsync();
+                return Ok(existingBrand);
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!BrandExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Không tìm thấy thương hiệu");
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return NoContent();
         }
 
         // POST: api/Brands
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Brand>> PostBrand(Brand brand)
+        public async Task<ActionResult<Brand>> PostBrand([FromForm] Brand brand, IFormFile image)
         {
-            _context.Brands.Add(brand);
-            await _context.SaveChangesAsync();
+            if (image != null)
+            {
+                var uniqueFileName = /*Guid.NewGuid().ToString() + "_" + */image.FileName;
+                var filePath = Path.Combine("wwwroot/images/brands", uniqueFileName);
 
-            return CreatedAtAction("GetBrand", new { id = brand.Id }, brand);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(fileStream);
+                }
+
+                brand.Image = uniqueFileName;
+                brand.CreatedAt = DateTime.Now;
+                brand.Slug = CreateSlug(brand.Name);
+
+                _context.Brands.Add(brand);
+                await _context.SaveChangesAsync();
+                return Ok(brand);
+            }
+            else
+            {
+                return BadRequest("Hình ảnh không hợp lệ");
+            }
         }
 
         // DELETE: api/Brands/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBrand(int id)
         {
+            if (_context.Brands == null)
+            {
+                return NotFound();
+            }
             var brand = await _context.Brands.FindAsync(id);
             if (brand == null)
             {
@@ -100,9 +145,20 @@ namespace BackendNetCoreApi.Controllers
             return NoContent();
         }
 
+        //Slug
+        private string CreateSlug(string input)
+        {
+            // Loại bỏ các ký tự không hợp lệ khỏi tên
+            string slug = string.Join("-", input.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
+
+            // Chuyển tất cả sang chữ thường
+            slug = slug.ToLower();
+
+            return slug;
+        }
         private bool BrandExists(int id)
         {
-            return _context.Brands.Any(e => e.Id == id);
+            return (_context.Brands?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

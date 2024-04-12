@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\brands\" />
+    <Folder Include="wwwroot\images\categories\" />
+    <Folder Include="wwwroot\images\orders\" />
     <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 

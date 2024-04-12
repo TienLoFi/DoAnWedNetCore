@@ -1,32 +1,32 @@
 import "../../../index.css"
 import { Link } from 'react-router-dom';
-import { urlImageFE } from '../../../config';
+import { urlImageBE, urlImageFE } from '../../../config';
 function Productitem(props) {
+
+    const formatCurrency = (price) => {
+      return new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      }).format(price);
+    };
     const shortenedName = props.product.name.length > 20 ? `${props.product.name.substring(0, 20)}...` : props.product.name;
     return (    
        
-            <div className="col-md-3 pt-4 pb-4">
-                <div className="product-item border" style={{ borderTopRightRadius: '15px', background:'white' }}>
-                    <Link to={"/chi-tiet-san-pham/"+props.product.id}>
-                        <img src={urlImageFE+ props.product.image} className="img-fluid" alt="hinh san pham"/>
-                    </Link>
-                    <Link to={"/chi-tiet-san-pham/"+props.product.id} style={{textDecoration:'none', color:"black"}}>
-                   
-                    <h3 className="fs-5 p-2 text-center product-name">{shortenedName}</h3>
-                    </Link>
-                    <div className="product-price p-2">
-                        <div className="row">
-                            {/* <div className="col-md-6">
-                                <strong className="text-danger fs-4 my-text">{props.product.price_sale.toLocaleString()}&#x20ab;</strong>
-                            </div> */}
-                            <div className="col-md-6 fs-6 pt-2 float-end">
-                                <strong>${props.product.price.toLocaleString()}</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className="col-xl-2 col-lg-3 col-md-4 col-6">
+        <div href="#" className="card card-sm card-product-grid">
+        <Link to={"/chi-tiet-san-pham/"+props.product.id}>
+                            <img src={urlImageBE+ "products/" + props.product.image} className="img-fluid" alt="hinh san pham"/>
+                        </Link>
+          <figcaption className="info-wrap">
+          <Link to={"/chi-tiet-san-pham/"+props.product.id} style={{textDecoration:'none', color:"black"}}>
     
+          {shortenedName}
+          </Link>
+            <div className="price mt-1"><strong>    {formatCurrency(props.product.price)}</strong></div>{" "}
+            {/* price-wrap.// */}
+          </figcaption>
+          </div>   </div>
+   
     );
 
 }

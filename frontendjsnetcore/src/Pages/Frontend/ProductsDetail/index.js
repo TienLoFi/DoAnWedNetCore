@@ -3,28 +3,51 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ProductService from '../../../services/ProductServices';
 import { urlImageFE } from "../../../config";
-function ProductDetail() {
-    const { id } = useParams();
-    const [product, setProduct] = useState([]);
-    // const [products, setProducts] = useState([]);
-  
+function ProductDetail(props) {
+  const { id } = useParams();
+  const [product, setProduct] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
-    useEffect(function () {
+  // Function to format currency...
+  const formatCurrency = (price) => {
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    }).format(price);
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await ProductService.getById(id);
+        setProduct(result.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-        (async function () {
-            try {
+    fetchData();
+  }, [id]);
 
-                const result = await ProductService.getById(id);
-                setProduct(result.data);
-              
-            } catch (error) {
-                console.error(error);
-            }
-        })();
+  const addToCart = () => {
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = existingCart.find((item) => item.id === product.id);
 
-    }, [id]);
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+    } else {
+      const newProduct = {
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        quantity: quantity,
+      };
+      existingCart.push(newProduct);
+    }
 
-
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    alert("Product added to cart!");
+  };
     return (
 <>
   <section className="py-3 bg-light">
@@ -57,7 +80,7 @@ function ProductDetail() {
                 <div>
                   {" "}
                   <a href="#">
-                  <img src={urlImageFE+ product.image} className="img-fluid" alt="hinh san pham"/>
+                  <img src={urlImageFE+ "products/" +product.image} className="img-fluid" alt="hinh san pham"/>
 
                   </a>
                 </div>
@@ -111,17 +134,11 @@ function ProductDetail() {
             </div>{" "}
             {/* rating-wrap.// */}
             <div className="mb-3">
-              <var className="price h4">{product.price}</var>
-              <span className="text-muted">USD 562.65 incl. VAT</span>
+              <var className="price h4">      {formatCurrency(product.price)}</var>
             </div>{" "}
             {/* price-detail-wrap .// */}
             <p>
-              Compact sport shoe for running, consectetur adipisicing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat{" "}
+            {product.description}
             </p>
             <dl className="row">
               <dt className="col-sm-3">Manufacturer</dt>
@@ -137,41 +154,43 @@ function ProductDetail() {
               <dt className="col-sm-3">Availabilty</dt>
               <dd className="col-sm-9">in Stock</dd>
             </dl>
-            <div className="form-row  mt-4">
-              <div className="form-group col-md flex-grow-0">
-                <div className="input-group mb-3 input-spinner">
-                  <div className="input-group-prepend">
-                    <button
-                      className="btn btn-light"
-                      type="button"
-                      id="button-plus"
-                    >
-                      {" "}
-                      +{" "}
-                    </button>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control"
-                    defaultValue={1}
-                  />
-                  <div className="input-group-append">
-                    <button
-                      className="btn btn-light"
-                      type="button"
-                      id="button-minus"
-                    >
-                      {" "}
-                      −{" "}
-                    </button>
-                  </div>
-                </div>
+           
+      <div className="form-row mt-4">
+        <div className="form-group col-md flex-grow-0">
+          <div className="input-group mb-3 input-spinner">
+            <div className="input-group-prepend">
+              <button
+                className="btn btn-light"
+                type="button"
+                id="button-plus"
+                onClick={() => setQuantity(Math.max(quantity + 1, 1))}
+              >
+                +
+              </button>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={quantity}
+              readOnly
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-light"
+                type="button"
+                id="button-minus"
+                onClick={() => setQuantity(Math.max(quantity - 1, 1))}
+              >
+                −
+              </button>
+            </div>
+          </div>
               </div>{" "}
               {/* col.// */}
               <div className="form-group col-md">
                 <a href="#" className="btn  btn-primary">
                   <i className="fas fa-shopping-cart" />{" "}
-                  <span className="text">Add to cart</span>
+                  <span className="text" onClick={addToCart}>Add to cart</span>
                 </a>
                 <a href="#" className="btn btn-light">
                   <i className="fas fa-envelope" />{" "}

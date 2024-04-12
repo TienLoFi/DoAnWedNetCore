@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackendNetCoreApi.Data;
 using BackendNetCoreApi.Models;
+using BackendNetCoreApi.Migrations;
 
 namespace BackendNetCoreApi.Controllers
 {
@@ -51,6 +52,46 @@ namespace BackendNetCoreApi.Controllers
             return category;
         }
 
+
+
+        [HttpGet("{limit}/{page}")]
+        public async Task<ActionResult<IEnumerable<Category>>> GetAllCategory(int limit, int page)
+        {
+            try
+            {
+                // Kiểm tra và xử lý giá trị của limit và page
+                if (limit <= 0 || page <= 0)
+                {
+                    return BadRequest("Invalid limit or page values. Both should be greater than zero.");
+                }
+
+                // Tính toán skip để bỏ qua các sản phẩm ở trang trước đó
+                int skipCount = (page - 1) * limit;
+
+                // Lấy danh sách sản phẩm theo limit và page
+                var categories = await _context.Categories
+                    .Skip(skipCount)
+                    .Take(limit)
+                    .ToListAsync();
+
+                // Kiểm tra xem có sản phẩm nào không
+                if (categories == null || !categories.Any())
+                {
+                    return NotFound("No products found for the specified limit and page.");
+                }
+
+                return categories;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+       
+
+
         // PUT: api/Categories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -88,7 +129,29 @@ namespace BackendNetCoreApi.Controllers
                 }
             }
         }
+        //seach by name product
+        [HttpGet("{keysearch}")]
+        public async Task<ActionResult<IEnumerable<Category>>> Search(string keysearch)
+        {
+            if (_context.Categories == null)
+            {
+                return NotFound();
+            }
 
+            var search = await _context.Categories.Where(c => c.Name.Contains(keysearch))
+                .Take(8)
+                .ToListAsync();
+
+            if (search == null || !search.Any())
+            {
+                return NotFound("No Categories found matching the search criteria.");
+            }
+
+            return Ok(search);
+
+        }
+
+      
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -137,6 +200,44 @@ namespace BackendNetCoreApi.Controllers
             slug = slug.ToLower();
 
             return slug;
+        }
+
+        [HttpGet("category/{categoryId}/{limit}/{page}")]
+        public async Task<ActionResult<IEnumerable<Products>>> GetProductByCategory(int categoryId, int limit, int page)
+        {
+            try
+            {
+                if (categoryId != 0)
+                {
+                    if (limit <= 0 || page <= 0)
+                    {
+                        return BadRequest("Invalid limit or page values. Both should be greater than zero.");
+                    }
+
+                    var skipCount = (page - 1) * limit;
+
+                    var products = await _context.Products
+                        .Where(p => p.Category_Id == categoryId)
+                        .Skip(skipCount)
+                        .Take(limit)
+                        .ToListAsync();
+
+                    if (products == null || !products.Any())
+                    {
+                        return NotFound("No products found for the specified category and page.");
+                    }
+
+                    return Ok(products);
+                }
+                else
+                {
+                    return BadRequest("Danh mục không được chỉ định hoặc không hợp lệ.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         //Get Category ByParent Id

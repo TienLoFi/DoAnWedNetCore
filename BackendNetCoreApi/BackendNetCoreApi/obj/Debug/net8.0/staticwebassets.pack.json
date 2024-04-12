@@ -1,6 +1,34 @@
 {
   "Files": [
     {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\393924085_1362780051302021_7167338153903190523_n.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\393924085_1362780051302021_7167338153903190523_n.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\949ec7a8e58ebab1b4c16f0c027e6733.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\949ec7a8e58ebab1b4c16f0c027e6733.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\AdobeStock_553860129.jpeg",
+      "PackagePath": "staticwebassets\\images\\brands\\AdobeStock_553860129.jpeg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Annotation 2023-05-18 151242_preview_rev_1.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Annotation 2023-05-18 151242_preview_rev_1.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\b4.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\b4.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\background-cổ-trang-đẹp-gió-mùa-hạ.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\background-cổ-trang-đẹp-gió-mùa-hạ.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\bà tuyết 1.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\bà tuyết 1.jpg"
+    },
+    {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-13_2_.webp",
       "PackagePath": "staticwebassets\\images\\iphone-13_2_.webp"
     },
@@ -15,6 +43,58 @@
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\oppo-f9-red-600x600.jpg",
       "PackagePath": "staticwebassets\\images\\oppo-f9-red-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\10b6791f8ef672a8a75834bdae1403ec.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\10b6791f8ef672a8a75834bdae1403ec.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\2_hinh-nen-pc-4k.png",
+      "PackagePath": "staticwebassets\\images\\products\\2_hinh-nen-pc-4k.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\32_hinh-nen-pc-4k.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\32_hinh-nen-pc-4k.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\350.jfif",
+      "PackagePath": "staticwebassets\\images\\products\\350.jfif"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\8baa5bb80ce306685aa46505ed299153.png",
+      "PackagePath": "staticwebassets\\images\\products\\8baa5bb80ce306685aa46505ed299153.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\949ec7a8e58ebab1b4c16f0c027e6733.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\949ec7a8e58ebab1b4c16f0c027e6733.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\AdobeStock_553860129.jpeg",
+      "PackagePath": "staticwebassets\\images\\products\\AdobeStock_553860129.jpeg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\Annotation 2023-05-18 151242_preview_rev_1.png",
+      "PackagePath": "staticwebassets\\images\\products\\Annotation 2023-05-18 151242_preview_rev_1.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\Domixxi.png",
+      "PackagePath": "staticwebassets\\images\\products\\Domixxi.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\HD-wallpaper-lionel-messi-argentina-national-football-team-creative-art-portrait-geometric-art-argentinian-football-player-forward-face.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\HD-wallpaper-lionel-messi-argentina-national-football-team-creative-art-portrait-geometric-art-argentinian-football-player-forward-face.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\IMG_20230604_131632.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\IMG_20230604_131632.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\anh-anime-co-trang-1.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\anh-anime-co-trang-1.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\b4.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\b4.jpg"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-m14.webp",

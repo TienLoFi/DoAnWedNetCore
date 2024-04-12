@@ -1,30 +1,34 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FaSave } from "react-icons/fa";
-import { BiArrowBack } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import ProductService from "../../../services/ProductServices";
 import BrandService from "../../../services/BrandService";
 import Categoryservice from "../../../services/CategoryServices";
-// import Categoryservice from "../../../services/CategoryServices";
-// import BrandService from "../../../services/BrandServices";
+import { urlImageBE } from "../../../config";
+
+// ----------------------------------------------------------------
+
 function ProductCreate() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [id, setCategory_Id] = useState(0);
+  const [category_Id, setCategory_Id] = useState(0);
   const [brand_Id, setBrand_Id] = useState(0);
   const [price, setPrice] = useState(0);
   const [qty, setQty] = useState(0);
   const [description, setDescription] = useState("");
   const [detail, setDetail] = useState("");
   const [status, setStatus] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [currentImage, setCurrentImage] = useState(""); 
 
+  // ------------------------------------------------------
   async function ProductStore(event) {
     event.preventDefault();
     const image = document.querySelector("#image");
     var product = new FormData();
     product.append("name", name);
-    product.append("category_Id", id);
+    product.append("category_Id", category_Id);
     product.append("brand_Id", brand_Id);
+
     product.append("price", price);
     product.append("qty", qty);
     product.append("description", description);
@@ -36,20 +40,13 @@ function ProductCreate() {
       navigate("/admin/product", { replace: true });
     });
   }
+  // ----------------------------------------------------------------
+
   const [categories, setCategories] = useState([]);
   useEffect(function () {
     (async function () {
-      await Categoryservice.getCategoryByParentId(1).then(function (result) {
-        setCategories(result.data);
-      });
-    })();
-  }, []);
-
-  const [categoriesChild, setCategoriesChild] = useState([]);
-  useEffect(function () {
-    (async function () {
       await Categoryservice.getAll().then(function (result) {
-        setCategoriesChild(result.data);
+        setCategories(result.data);
       });
     })();
   }, []);
@@ -62,7 +59,28 @@ function ProductCreate() {
       });
     })();
   }, []);
+  //-----------------Xử Lí Nút Thêm Ảnh--------------------
+  // xử lí nút thêm ảnh
+  const handleButtonClick = () => {
+    const fileInput = document.getElementById("image");
+    fileInput.click();
+  };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setCurrentImage(reader.result); // Cập nhật trạng thái hình ảnh hiện tại với hình ảnh mới
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
+  useEffect(() => {
+    if (products.length > 0 && !currentImage) {
+      setCurrentImage(urlImageBE + "products/" + products[0].image);
+    }
+  }, [products, currentImage]);
   return (
     <main className="app-content">
       <div className="app-title">
@@ -149,30 +167,19 @@ function ProductCreate() {
                   <label htmlFor="exampleSelect1" className="control-label">
                     Danh mục
                   </label>
+                  
                   <select
                     name="category_Id"
-                    value={id}
+                    value={category_Id}
                     onChange={(e) => setCategory_Id(e.target.value)}
                     className="form-control"
-                    required
                   >
-                    <option>-- Chọn danh mục --</option>
-                    {categories.map(function (cate, index) {
+                    <option>-- Chọn nhà cung cấp --</option>
+                    {categories.map(function (ca, index) {
                       return (
-                        <optgroup key={index} label={cate.name}>
-                          {categoriesChild.map(function (
-                            cateChild,
-                            indexChild
-                          ) {
-                            if (cateChild.parent_Id === cate.id) {
-                              return (
-                                <option key={indexChild} value={cateChild.id}>
-                                  {cateChild.name}
-                                </option>
-                              );
-                            }
-                          })}
-                        </optgroup>
+                        <option key={index} value={ca.id}>
+                          {ca.name}
+                        </option>
                       );
                     })}
                   </select>
@@ -231,39 +238,67 @@ function ProductCreate() {
                 </div>
                 <div className="form-group col-md-12">
                   <label className="control-label">Ảnh sản phẩm</label>
-                  <div id="myfileupload">
-                  <input type="file" id="image" name="image" className="form-control" required></input>
-                  </div>
-                  <div id="thumbbox">
-                    <img
-                      height={450}
-                      width={400}
-                      alt="Thumb image"
-                      id="thumbimage"
-                      style={{ display: "none" }}
+                  <div
+                    id="myfileupload"
+                    style={{
+                      position: "relative",
+                      overflow: "hidden",
+                      width: "150px",
+                    }}
+                  >
+                    <input
+                      type="file"
+                      id="image"
+                      name="image"
+                      className="form-control"
+                      onChange={handleFileChange}
+                      required
+                      style={{
+                        position: "absolute",
+                        top: "0",
+                        right: "0",
+                        width: "100%",
+                        height: "100%",
+                        opacity: "0",
+                        cursor: "pointer",
+                      }}
                     />
-                    <a className="removeimg" href="javascript:" />
+                    <button
+                      type="button"
+                      className="btn btn-dark"
+                      style={{ position: "relative", zIndex: "1" }}
+                      onClick={handleButtonClick}
+                    >
+                      <i className="fas fa-cloud-upload-alt " /> Chọn ảnh{" "}
+                    </button>
                   </div>
-                  <div id="boxchoice ">
-                    <a href="javascript:" className="Choicefile">
-                      <i className="fas fa-cloud-upload-alt " /> Chọn ảnh
-                    </a>
-                    <p style={{ clear: "both" }} />
+
+                  <div id="thumbbox">
+                    {currentImage && (
+                      <div>
+                        <img
+                          src={currentImage} // Sử dụng đường dẫn hình ảnh hiện tại từ trạng thái
+                          alt="Product Image"
+                          className="img-fluid"
+                          style={{ width: "150px", height: "auto" }}
+                        />
+                        <a className="removeimg" href="javascript:" />
+                      </div>
+                    )}
                   </div>
                 </div>
                 <button type="submit" className="btn btn-save">
-              Lưu lại
-            </button>
-            <Link
-              className="btn btn-cancel"
-              to="/admin/product"
-              data-dismiss="modal"
-            >
-              Hủy Bỏ
-            </Link>
+                  Lưu lại
+                </button>
+                <Link
+                  className="btn btn-cancel"
+                  to="/admin/product"
+                  data-dismiss="modal"
+                >
+                  Hủy Bỏ
+                </Link>
               </form>
             </div>
-          
           </div>
         </div>
       </div>

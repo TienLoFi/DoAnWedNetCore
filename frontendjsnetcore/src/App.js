@@ -6,7 +6,6 @@ import Login from './Pages/Frontend/Login';
 import Register from './Pages/Frontend/Register';
 
 
-
 function App() {
   return (
     <BrowserRouter>

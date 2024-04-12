@@ -4,12 +4,15 @@ import httpAxios from "../httpAxios";
 function getAll(){
     return httpAxios.get('Categories/GetCategories');
 }
-function getById(id){
-    return httpAxios.get(`Categories/GetCategories/${id}`)
+function getById(id){   
+    return httpAxios.get(`Categories/GetCategory/${id}`)
 }
 function create(data){
     return httpAxios.post('Categories/PostCategory',data);
 
+}
+function getCategoryAll(limit, page){
+    return httpAxios.get(`Categories/GetAllCategory/${limit}/${page}`);
 }
 function update(data, id){
     return httpAxios.put(`Categories/PutCategory/${id}`, data);
@@ -26,6 +29,8 @@ function getAllCateMinusParentCate(){
     return httpAxios.get('Categories/GetAllCategoryMinusParentCate');
 }
 
+
+
 const Categoryservice ={
     
     getAll:getAll,
@@ -33,6 +38,7 @@ const Categoryservice ={
     create:create,
     update:update,
     remove:remove,
+    getCategoryAll:getCategoryAll,
     getCategoryByParentId:getCategoryByParentId,
     getAllCateMinusParentCate:getAllCateMinusParentCate
 }

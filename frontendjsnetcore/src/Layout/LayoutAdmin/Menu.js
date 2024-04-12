@@ -1,38 +1,97 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from "react";
+import { FaRegHeart } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import ProductService from '../../services/ProductServices';
 function Menu() {
+  const navigate = useNavigate();
+
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [activeItem, setActiveItem] = useState("");
-  const toggleDropdown = (dropdownName) => {
-    setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
-  };
-  const handleItemClick = (itemName) => {
-    setActiveItem(itemName);
-  };
+  const [username, setUsername] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [keyword, setKeyword] = useState('');
+  const [cartItemCount, setCartItemCount] = useState(0);
+
+useEffect(() => {
+// Function to check token status
+
+const token = Cookies.get('jwtToken');
+if (token) {
+    try {
+        const decoded = jwtDecode(token);
+        const userUsername = decoded.UserName;
+        setUsername(userUsername);
+
+    } catch (error) {
+        console.error('Error decoding JWT token:', error);
+    }
+}
+
+}, []);
+
+const Logout = () => {
+// Xóa token từ cookies
+Cookies.remove("jwtToken");
+
+// Chuyển hướng đến trang đăng nhập
+navigate('/login');
+window.location.reload();
+};
+//   
+useEffect(() => {
+const fetchSearchResults = async () => {
+  try {
+      const result = await ProductService.Search(keyword);
+      setSearchResults(result.data);
+  } catch (error) {
+      console.error(error);
+  }
+};
+
+if (keyword) {
+  fetchSearchResults();
+} else {
+  setSearchResults([]);
+}
+}, [keyword]);
+
+
+
+const handleInputChange = async (e) => {
+const inputKeyword = e.target.value;
+setKeyword(inputKeyword);
+};
+
   return (
     <aside className="app-sidebar">
-    <div className="app-sidebar__user">
-      <img
-        className="app-sidebar__user-avatar"
-        src="./MixiGamingLogo.png"
-        width="100%"
-        alt="User Image"
-      />
-      <div>
-        <p className="app-sidebar__user-name">
-          <b>Ngọc Tiến</b>
-        </p>
-        <p className="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
-      </div>
-    </div>
+<div className="app-sidebar__user">
+
+  <div>
+    <p className="app-sidebar__user-name">
+    {username ? (
+                    <a href="" className="widget-view">
+                      <b className="text-white"> {username}</b>
+                    </a>
+                  ) : (
+                    <li className="pl-4">
+                      <Link to="/login">
+                        <i className="fa fa-user pl-2"></i> Login
+                      </Link>
+                    </li>
+                  )}
+    </p>
+    <p className="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
+  </div>
+</div>
+
     <hr />
     <ul className="app-menu">
       <li>
-        <a className="app-menu__item haha" href="phan-mem-ban-hang.html">
+        <Link className="app-menu__item haha" to="/">
           <i className="app-menu__icon bx bx-cart-alt" />
           <span className="app-menu__label">POS Bán Hàng</span>
-        </a>
+        </Link>
       </li>
       <li>
         <Link className="app-menu__item " to="/admin">
@@ -47,10 +106,22 @@ function Menu() {
         </a>
       </li>
       <li>
-        <a className="app-menu__item" href="#">
-          <i className="app-menu__icon bx bx-user-voice" />
-          <span className="app-menu__label">Quản lý khách hàng</span>
-        </a>
+        <Link className="app-menu__item" to="/admin/brand">
+          <i className="app-menu__icon bx bx-store" />
+          <span className="app-menu__label">Quản lý Thương Hiệu</span>
+        </Link>
+      </li>
+      <li>
+        <Link className="app-menu__item" to="/admin/user">
+          <i className="app-menu__icon bx bx-user" />
+          <span className="app-menu__label">Quản lý Người Dùng</span>
+        </Link>
+      </li>
+      <li>
+        <Link className="app-menu__item" to="/admin/category">
+          <i className="app-menu__icon bx bx-category" />
+          <span className="app-menu__label">Quản lý Danh Mục</span>
+        </Link>
       </li>
       <li>
         <Link className="app-menu__item" to="/admin/product">
@@ -59,10 +130,10 @@ function Menu() {
         </Link>
       </li>
       <li>
-        <a className="app-menu__item" href="table-data-oder.html">
+        <Link className="app-menu__item" to="/admin/order">
           <i className="app-menu__icon bx bx-task" />
           <span className="app-menu__label">Quản lý đơn hàng</span>
-        </a>
+        </Link>
       </li>
       <li>
         <a className="app-menu__item" href="table-data-banned.html">

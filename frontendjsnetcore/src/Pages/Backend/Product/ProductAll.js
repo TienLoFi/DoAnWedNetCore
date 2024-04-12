@@ -4,15 +4,37 @@ import ProductService from "../../../services/ProductServices";
 import { urlImageBE } from "../../../config";
 import Categoryservice from "../../../services/CategoryServices";
 import BrandService from "../../../services/BrandService";
-function Index() {
+function Index(props) {
   const [products, setProducts] = useState([]);
   const [statusdel, setStatusDel] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [productIdToDelete, setProductIdToDelete] = useState(null);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null); // State để lưu thông tin sản phẩm được chọn
+  const [keyword, setKeyword] = useState("");
   // -------------------------------------------------------------------
 
+  // --phân trang-----------------------------------------------------------------
+  const [limit, setLimit] = useState(4);
+  const [page, setPage] = useState(1);
+  useEffect(
+    function () {
+      (async function () {
+        try {
+          const result = await ProductService.getProductAll(limit, page);
+          setProducts(result.data);
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    },
+    [limit, page]
+  );
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
+
+  //----------------------------------------------------------------
   // Xử lý sự kiện click vào nút "Xem"
   const handleViewProduct = (product) => {
     setSelectedProduct(product); // Cập nhật state với thông tin sản phẩm được chọn
@@ -67,6 +89,53 @@ function Index() {
       });
     })();
   }, []);
+  // search------------------------------------------------------
+  const [isSearching, setIsSearching] = useState(false);
+
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    const fetchSearchResults = async () => {
+      try {
+        const result = await ProductService.Search(keyword);
+        setSearchResults(result.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (keyword) {
+      setIsSearching(true);
+      fetchSearchResults();
+    } else {
+      setIsSearching(false);
+    }
+  }, [keyword]);
+
+  const handleInputChange = async (e) => {
+    const inputKeyword = e.target.value;
+    setKeyword(inputKeyword);
+  };
+  ///
+  //   const [limit, setLimit] = useState(8);    const [page, setPage] = useState(1);
+
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //         try {
+  //             const result = await ProductService.getProductByCategoryParent(props.category.id, limit, page);
+  //             setProducts(result.data);
+  //         } catch (error) {
+  //             setProducts([]);
+  //         }
+  //     };
+
+  //     fetchData();
+  // }, [props.category.id, limit, page]);
+
+  // const handlePageChange = (newPage) => {
+  //     setPage(newPage);
+  // };
+
   return (
     <>
       {/* danh sach san pham  */}
@@ -79,6 +148,37 @@ function Index() {
               </a>
             </li>
           </ul>
+
+          <div
+            className="mb-1 ml-auto"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              border: "1px solid #ced4da",
+              borderRadius: "0.25rem",
+              padding: "0.375rem 0.75rem",
+            }}
+          >
+            <label
+              htmlFor="searchInput"
+              style={{
+                marginRight: "0.5rem",
+                flex: "none",
+                fontWeight: "bold",
+              }}
+            >
+              Tìm kiếm:
+            </label>
+            <input
+              type="search"
+              id="searchInput"
+              className="form-control"
+              placeholder=""
+              value={keyword}
+              onChange={handleInputChange}
+              style={{ flexGrow: 1 }}
+            />
+          </div>
 
           <div id="clock" />
         </div>
@@ -174,8 +274,8 @@ function Index() {
                     </tr>
                   </thead>
                   <tbody>
-                    {products.map(function (product, index) {
-                      return (
+                    {(isSearching ? searchResults : products).map(
+                      (product, index) => (
                         <tr key={index}>
                           <td width={10}>
                             <input
@@ -188,18 +288,41 @@ function Index() {
                           <td style={{ width: "150px" }}>{product.name}</td>
                           <td width={10}>
                             <img
-                              style={{ width: "150px"}}
+                              style={{ width: "150px" }}
                               src={urlImageBE + "products/" + product.image}
                               alt={product.image}
-                            ></img>
+                            />
                           </td>
                           <td style={{ width: "80px" }}>{product.qty}</td>
                           <td>
-                            <span className="badge bg-success">Còn hàng</span>
+                            <span
+                              className={`badge ${
+                                product.status === 1
+                                  ? "bg-success"
+                                  : "bg-danger"
+                              }`}
+                            >
+                              {product.status === 1 ? "Còn Hàng" : "Hết Hàng"}
+                            </span>
                           </td>
                           <td>{product.price} đ</td>
-                          <td style={{ width: "80px" }}>
-                            {product.categoryId}
+                          <td>
+                            {product.category_Id !== 0 ? (
+                              // Nếu sản phẩm đã được gán danh mục
+                              categories.map((category) => {
+                                if (category.id === product.category_Id) {
+                                  return (
+                                    <span key={category.id}>
+                                      {category.name}
+                                    </span>
+                                  );
+                                }
+                                return null;
+                              })
+                            ) : (
+                              // Nếu sản phẩm chưa được gán danh mục
+                              <span>Sản phẩm chưa có Danh Mục nào</span>
+                            )}
                           </td>
                           <td style={{ width: "250px" }}>
                             {product.description}
@@ -216,7 +339,6 @@ function Index() {
                             >
                               <i className="fas fa-eye" />
                             </button>
-
                             <button
                               className="btn btn-primary btn-sm trash"
                               type="button"
@@ -225,84 +347,71 @@ function Index() {
                             >
                               <i className="fas fa-trash-alt" />
                             </button>
-                            <button
-                              className="btn btn-primary btn-sm edit ml-2"
-                              type="button"
+                            <Link
+                              to={`/admin/product/edit/${product.id}`}
                               title="Sửa"
-                              id="show-emp"
-                              data-toggle="modal"
-                              data-target="#ModalUP"
                             >
-                              <i className="fas fa-edit" />
-                            </button>
+                              <button
+                                className="btn btn-primary btn-sm edit ml-2"
+                                type="button"
+                                title="Sửa"
+                                id="show-emp"
+                                data-toggle="modal"
+                                data-target="#ModalUP"
+                              >
+                                <i className="fas fa-edit" />
+                              </button>
+                            </Link>
                           </td>
                         </tr>
-                      );
-                    })}
+                      )
+                    )}
                   </tbody>
                 </table>
                 {/* phân trang------------------------ */}
-                <div className="row">
-                  <div className="col-sm-12 col-md-5">
-                    <div
-                      className="dataTables_info"
-                      id="sampleTable_info"
-                      role="status"
-                      aria-live="polite"
-                    >
-                      Hiện 1 đến 7 của 7 danh mục
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-7">
-                    <div
-                      className="dataTables_paginate paging_simple_numbers"
-                      id="sampleTable_paginate"
-                    >
-                      <ul className="pagination">
-                        <li
-                          className="paginate_button page-item previous disabled"
-                          id="sampleTable_previous"
+                <div className="row ">
+                  <div className="col-md-12">
+                    <ul className="pagination justify-content-end m-3">
+                      <li className="page-item">
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(page - 1)}
+                          disabled={page === 1}
                         >
-                          <a
-                            href="#"
-                            aria-controls="sampleTable"
-                            data-dt-idx={0}
-                            tabIndex={0}
-                            className="page-link"
-                          >
-                            Lùi
-                          </a>
-                        </li>
-                        <li className="paginate_button page-item active">
-                          <a
-                            href="#"
-                            aria-controls="sampleTable"
-                            data-dt-idx={1}
-                            tabIndex={0}
-                            className="page-link"
-                          >
-                            1
-                          </a>
-                        </li>
-                        <li
-                          className="paginate_button page-item next disabled"
-                          id="sampleTable_next"
+                          Lùi{" "}
+                        </button>
+                      </li>
+                      <li className={`page-item ${page === 1 ? "active" : ""}`}>
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(1)}
+                          disabled={page === 1}
                         >
-                          <a
-                            href="#"
-                            aria-controls="sampleTable"
-                            data-dt-idx={2}
-                            tabIndex={0}
-                            className="page-link"
-                          >
-                            Tiếp
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                          1
+                        </button>
+                      </li>
+                      <li className={`page-item ${page === 2 ? "active" : ""}`}>
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(2)}
+                          disabled={page === 2}
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li className="page-item">
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(page + 1)}
+                          disabled={products.length < limit} // Disable nút khi hết sản phẩm
+                        >
+                          Next
+                        </button>
+                      </li>
+                    </ul>
                   </div>
-                  {/* end phân trang */}
                 </div>
+                {/* end phân trang */}
               </div>
             </div>
           </div>
@@ -326,8 +435,8 @@ function Index() {
             <div className="modal-body">
               <div className="row">
                 <div className="form-group  col-md-12">
-                  <span className="thong-tin-thanh-toan">
-                    <h5> thông tin sản phẩm </h5>
+                  <span className="thong-tin-thanh-toan ">
+                    <h5> Thông Tin Sản Phẩm </h5>
                   </span>
                 </div>
               </div>
@@ -377,6 +486,24 @@ function Index() {
                     readOnly
                     value={selectedProduct ? selectedProduct.qty : ""}
                   />{" "}
+                </div>
+                <div className="form-group col-md-6">
+                  <label className="control-label">Ngày Thêm</label>
+                  <textarea
+                    className="form-control"
+                    readOnly
+                    value={selectedProduct ? selectedProduct.createdAt : ""}
+                    // Tùy chỉnh chiều cao của textarea
+                  />
+                </div>
+                <div className="form-group col-md-6">
+                  <label className="control-label">Sửa Bởi</label>
+                  <textarea
+                    className="form-control"
+                    readOnly
+                    value={selectedProduct ? selectedProduct.updateBy : ""}
+                    // Tùy chỉnh chiều cao của textarea
+                  />
                 </div>
                 <div className="form-group col-md-6 ">
                   <label htmlFor="exampleSelect1" className="control-label">
@@ -444,6 +571,7 @@ function Index() {
                       value="Sản phẩm chưa có Danh Mục nào"
                     />
                   )}
+
                   <div className="form-group col-md-6">
                     <label
                       className="control-label"

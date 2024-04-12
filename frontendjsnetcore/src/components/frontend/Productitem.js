@@ -16,19 +16,24 @@ function ProductItem(props) {
   };
 
   return (
-<div class="col-md col-6">
-<figure class="card-product-grid card-sm">
-  <a href="#" class="img-wrap">
-    <img src="images/items/4.jpg" />
-  </a>
-  <div class="text-wrap p-3">
-    <a href="#" class="title">
-
-    </a>
-    <span class="badge badge-danger"> -5% </span>
-  </div>
-</figure>
-</div>
+    <div className="row row-sm">
+      
+              <div className="col-xl-2 col-lg-3 col-md-4 col-6">
+                <div href="#" className="card card-sm card-product-grid">
+                  <a href="#" className="img-wrap">
+                    {" "}
+                    <img src="images/items/1.jpg" />{" "}
+                  </a>
+                  <figcaption className="info-wrap">
+                    <a href="#" className="title">
+                      Just another product name
+                    </a>
+                    <div className="price mt-1">$179.00</div>{" "}
+                    {/* price-wrap.// */}
+                  </figcaption>
+                  </div>   </div>
+              </div>
+            
   );
 }
 

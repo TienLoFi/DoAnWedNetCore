@@ -9,62 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\controllers\\brandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\controllers\\brandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\dto\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|d:\\workspace\\wed\\asp.net\\doanasp\\backendnetcoreapi\\backendnetcoreapi\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D37E2F0A-97CB-4E8A-8B42-25A18F16DF8C}|BackendNetCoreApi\\BackendNetCoreApi.csproj|solutionrelative:backendnetcoreapi\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -96,9 +40,9 @@
               "RelativeDocumentMoniker": "BackendNetCoreApi\\Controllers\\CategoriesController.cs",
               "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Controllers\\CategoriesController.cs",
               "RelativeToolTip": "BackendNetCoreApi\\Controllers\\CategoriesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAbAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T12:09:56.564Z"
+              "WhenOpened": "2024-04-11T15:12:21.675Z"
             },
             {
               "$type": "Document",
@@ -108,178 +52,10 @@
               "RelativeDocumentMoniker": "BackendNetCoreApi\\Controllers\\ProductsController.cs",
               "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "BackendNetCoreApi\\Controllers\\ProductsController.cs",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAiwHoAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T12:07:02.338Z",
+              "WhenOpened": "2024-04-11T14:23:16.889Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BrandsController.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Controllers\\BrandsController.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Controllers\\BrandsController.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Controllers\\BrandsController.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Controllers\\BrandsController.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAA9wFkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T02:59:07.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Controllers\\UsersController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T02:56:26.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "LoginModel.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\LoginModel.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\LoginModel.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\LoginModel.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\LoginModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T10:43:44.569Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RegisterModel.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\RegisterModel.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\RegisterModel.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\RegisterModel.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\RegisterModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T10:44:10.668Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\User.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\User.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\User.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T10:43:01.168Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Program.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Program.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Program.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Program.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAADsAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T10:33:22.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\appsettings.Development.json",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\appsettings.Development.json",
-              "RelativeToolTip": "BackendNetCoreApi\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-27T02:19:39.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppSettings.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\AppSettings.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\AppSettings.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\AppSettings.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\AppSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T06:28:55.679Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Brand.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\Brand.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\Brand.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\Brand.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\Brand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T10:38:21.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\ApiResponse.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\ApiResponse.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\ApiResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T06:28:43.731Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "OrderDto.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\DTO\\OrderDto.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\DTO\\OrderDto.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\DTO\\OrderDto.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\DTO\\OrderDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T10:46:00.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Data\\DataContext.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Data\\DataContext.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Data\\DataContext.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Data\\DataContext.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T10:37:13.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\Product.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\Product.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T10:39:58.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "BackendNetCoreApi\\Models\\OrderDetail.cs",
-              "ToolTip": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\Models\\OrderDetail.cs",
-              "RelativeToolTip": "BackendNetCoreApi\\Models\\OrderDetail.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-21T10:32:58.797Z"
             }
           ]
         }
