@@ -12,7 +12,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using Microsoft.AspNetCore.Authentication;
 namespace BackendNetCoreApi.Controllers
 {
     [Route("api/[controller]/[action]")]
@@ -22,13 +25,17 @@ namespace BackendNetCoreApi.Controllers
         private readonly DataContext _context;
         private readonly AppSetting _appSettings;
         private byte[] secretKeyBytes;
-
-        public UsersController(DataContext context, IOptionsMonitor<AppSetting> optionsMonitor)
+        //private SignInManager<AppUser> _signInManager;
+        //private UserManager<AppUser> _userManager;
+        public UsersController(DataContext context, IOptionsMonitor<AppSetting> optionsMonitor
+                      )
+        /*    UserManager<AppUser> userManager, SignInManager<AppUser> signInManager*/
         {
             _context = context;
             _appSettings = optionsMonitor.CurrentValue;
+            //_signInManager = signInManager;
+            //_userManager = userManager;
         }
-
         // GET: api/Users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
@@ -227,5 +234,53 @@ namespace BackendNetCoreApi.Controllers
         {
             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+
+        //[AllowAnonymous]
+        //[HttpGet("GoogleLogin")]
+        //public IActionResult GoogleLogin()
+        //{
+        //    var redirectUrl = Url.Action("GoogleResponse", "Users");
+        //    var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
+        //    return Challenge(properties, "Google"); 
+        //}
+
+        //[AllowAnonymous]
+        //[HttpGet("GoogleResponse")]
+        //public async Task<IActionResult> GoogleResponse()
+        //{
+        //    var info = await _signInManager.GetExternalLoginInfoAsync();
+        //    if (info == null)
+        //        return Unauthorized(); // Thay vì RedirectToAction, trả về mã lỗi 401 Unauthorized
+
+        //    var user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+        //    if (user != null)
+        //    {
+        //        // Đăng nhập người dùng nếu tồn tại
+        //        await _signInManager.SignInAsync(user, isPersistent: false);
+        //        return Ok(); // Trả về mã thành công 200 OK nếu đăng nhập thành công
+        //    }
+        //    else
+        //    {
+        //        // Tạo người dùng mới nếu không tồn tại
+        //        user = new AppUser
+        //        {
+        //            UserName = info.Principal.FindFirst(ClaimTypes.Email).Value,
+        //            Email = info.Principal.FindFirst(ClaimTypes.Email).Value
+        //        };
+        //        var result = await _userManager.CreateAsync(user);
+        //        if (result.Succeeded)
+        //        {
+        //            result = await _userManager.AddLoginAsync(user, info);
+        //            if (result.Succeeded)
+        //            {
+        //                await _signInManager.SignInAsync(user, isPersistent: false);
+        //                return Ok(); // Trả về mã thành công 200 OK nếu đăng ký và đăng nhập thành công
+        //            }
+        //        }
+        //    }
+
+        //    return Unauthorized(); // Trả về mã lỗi 401 Unauthorized nếu có lỗi xảy ra
+        //}
     }
 }

@@ -110,7 +110,7 @@ const Checkout = ({ cart, clearCart, totalAmount }) => {
         data-toggle="modal"
         data-target="#ModalUPDetail"
       >
-        {showForm ? "Cancel" : "Check Out"}
+        {showForm ? "Hủy" : "Thanh Toán"}
       </button>
 
       {/* Hiển thị form nếu showForm là true */}

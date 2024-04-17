@@ -15,6 +15,7 @@ using BackendNetCoreApi.Models;
 using BackendNetCoreApi.Migrations;
 using Azure;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace BackendNetCoreApi.Controllers
 {
@@ -95,8 +96,45 @@ namespace BackendNetCoreApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-     
 
+       
+        [HttpGet("brand/{brandId}/{limit}/{page}")]
+        public async Task<ActionResult<IEnumerable<Products>>> GetProductByBrand(int brandId, int limit, int page)
+        {
+            try
+            {
+                if (brandId != 0)
+                {
+                    if (limit <= 0 || page <= 0)
+                    {
+                        return BadRequest("Invalid limit or page values. Both should be greater than zero.");
+                    }
+
+                    var skipCount = (page - 1) * limit;
+
+                    var products = await _context.Products
+                        .Where(p => p.Brand_Id == brandId)
+                        .Skip(skipCount)
+                        .Take(limit)
+                        .ToListAsync();
+
+                    if (products == null || !products.Any())
+                    {
+                        return NotFound("No products found for the specified category and page.");
+                    }
+
+                    return Ok(products);
+                }
+                else
+                {
+                    return BadRequest("Danh mục không được chỉ định hoặc không hợp lệ.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -281,6 +319,41 @@ namespace BackendNetCoreApi.Controllers
             }
         }
 
+        //Get all product by limit and page
+        [HttpGet("{limit}/{page}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetAllOrder(int limit, int page)
+        {
+            try
+            {
+                // Kiểm tra và xử lý giá trị của limit và page
+                if (limit <= 0 || page <= 0)
+                {
+                    return BadRequest("Invalid limit or page values. Both should be greater than zero.");
+                }
+
+                // Tính toán skip để bỏ qua các sản phẩm ở trang trước đó
+                int skipCount = (page - 1) * limit;
+
+                // Lấy danh sách sản phẩm theo limit và page
+                var orders = await _context.Products
+                    .Skip(skipCount)
+                    .Take(limit)
+                    .ToListAsync();
+
+                // Kiểm tra xem có sản phẩm nào không
+                if (orders == null || !orders.Any())
+                {
+                    return NotFound("No products found for the specified limit and page.");
+                }
+
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
         //get all product by ever category parent
         [HttpGet("{categoryIdParent}/{limit}/{page}")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategoryParent(int categoryIdParent, int limit, int page)
@@ -361,57 +434,7 @@ namespace BackendNetCoreApi.Controllers
         }
 
 
-        //get product sale
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetSaledProducts()
-        {
-            if (_context.ProductSales == null)
-            {
-                return NotFound();
-            }
-            if (_context.Products == null)
-            {
-                return NotFound();
-            }
-            DateTime currentDate = DateTime.Now;
-            var saledProducts = await _context.Products
-        .Join(
-            _context.ProductSales,
-            product => product.Id,
-            productSale => productSale.ProductId,
-            (product, productSale) => new
-            {
-                ProductId = product.Id,
-                ProductSaleId = productSale.Id,
-                // Add other attributes from the Product table
-                NameSale = product.Name,
-                PriceSale = product.Price,
-                ImageSale = product.Image,
-                DescriptionSale = product.Description,
-                DetailSale = product.Detail,
-                // Add attributes from the ProductSale table
-
-                DiscountSale = productSale.Discount,
-                QtySale = productSale.Qty,
-                Date_BeginSale = productSale.Date_Begin,
-                Date_EndSale = productSale.Date_End,
-                CreatedAtSale = productSale.CreatedAt,
-
-            }
-        )
-        .Where(ps => currentDate >= ps.Date_BeginSale && currentDate <= ps.Date_EndSale)
-        .ToListAsync();
-
-
-            if (saledProducts == null || saledProducts.Count == 0)
-            {
-                return NotFound();
-            }
-
-            return Ok(saledProducts);
-
-
-        }
+      
 
 
 

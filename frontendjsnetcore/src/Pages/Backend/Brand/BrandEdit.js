@@ -12,23 +12,10 @@ function BrandEdit() {
   const [status, setStatus] = useState(0);
   const [currentImage, setCurrentImage] = useState("");
   const [brands, setBrands] = useState([]); // Di chuyển biến này lên đây
+  const [image, setImage] = useState("");
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setCurrentImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
-  useEffect(() => {
-    if (brands.length > 0 && !currentImage) {
-      setCurrentImage(urlImageBE + "brands/" + brands[0].image);
-    }
-  }, [brands, currentImage]);
+
   useEffect(() => {
     (async function () {
       await BrandService.getAll().then(function (result) {
@@ -39,6 +26,12 @@ function BrandEdit() {
 
 
  
+  useEffect(() => {
+    // Set the current image when the component mounts
+    setCurrentImage(image ? urlImageBE + "brands/" + image : "");
+  }, [image]);
+
+  // xử lí nút thêm ảnh
   const handleButtonClick = () => {
     const fileInput = document.getElementById("image");
     fileInput.click();
@@ -68,7 +61,33 @@ function BrandEdit() {
          navigate('/admin/brand', {replace:true});
      });
  }
-  
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const result = await BrandService.getById(id);
+      const productData = result.data;
+      setName(productData.name);
+   
+      setDescription(productData.description);
+ 
+      setStatus(productData.status);
+      setCurrentImage(urlImageBE + "brands/" + productData.image); // Gán giá trị của hình ảnh từ cơ sở dữ liệu
+    } catch (error) {
+      console.error("Error fetching product:", error);
+    }
+  };
+  fetchData();
+}, [id]);
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setCurrentImage(reader.result); // Cập nhật trạng thái hình ảnh hiện tại với hình ảnh mới 
+    };
+    reader.readAsDataURL(file);
+  }
+};
  useEffect(function(){
   (async function(){
       await BrandService.getById(id).then(function(result){
@@ -152,8 +171,8 @@ function BrandEdit() {
                     required
                   >
                     <option>-- Chọn tình trạng --</option>
-                    <option value="1">Còn Hàng</option>
-                    <option value="2">Hết Hàng</option>
+                    <option value="1">Đang Hợp Tác</option>
+                    <option value="2">Ngưng Hợp Tác</option>
                   </select>
                 </div>
 
@@ -196,6 +215,7 @@ function BrandEdit() {
                       name="image"
                       className="form-control"
                       onChange={handleFileChange}
+
                       required
                       style={{
                         position: "absolute",

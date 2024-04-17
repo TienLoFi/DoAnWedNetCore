@@ -14,7 +14,7 @@ function Index(props) {
   // -------------------------------------------------------------------
 
   // --phân trang-----------------------------------------------------------------
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(8);
   const [page, setPage] = useState(1);
   useEffect(
     function () {
@@ -399,13 +399,23 @@ function Index(props) {
                           2
                         </button>
                       </li>
+                      <li className={`page-item ${page === 3 ? "active" : ""}`}>
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(3)}
+                          disabled={page === 3}
+                        >
+                          3
+                        </button>
+                      </li>
+                    
                       <li className="page-item">
                         <button
                           className="page-link"
                           onClick={() => handlePageChange(page + 1)}
                           disabled={products.length < limit} // Disable nút khi hết sản phẩm
                         >
-                          Next
+                      Tiếp
                         </button>
                       </li>
                     </ul>

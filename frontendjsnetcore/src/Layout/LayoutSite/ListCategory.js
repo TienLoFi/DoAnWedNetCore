@@ -1,45 +1,40 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Categoryservice from "../../services/CategoryService";
-
+import CategoryService from "../../services/CategoryServices";
 
 function ListCategory() {
-    const [categorys, setListCategory] = useState([]);
+    const [listCategory, setListCategory] = useState([]);
     useEffect(function () {
-
         (async function () {
             try {
-                const result = await Categoryservice.getAllCateMinusParentCate()
-                //CategoryService.CategoryByParentId(0a)
-                setListCategory(result)
-            } catch (error) {
+                const result = await CategoryService.getAllCateMinusParentCate();
+                setListCategory(result.data);
+            }
+            catch (error) {
                 console.error(error);
             }
 
         })();
     }, [])
     return (
+        <div class="filter-sub-area pt-sm-10 pt-xs-10">
+            <div class="categori-checkbox">
+           
+                    <ul>
+                        {listCategory.map(function (cat, index) {
+                            return <div key={index} style={{ listStyle: 'none' ,marginTop:"10px",marginLeft:"-40px"}}>
+                                <input type="checkbox" className="mr-2"/>
+                                <Link to={"/danh-muc-san-pham/"+cat.id}>{cat.name}</Link>
 
-        <>
-            <h6>CATEGORIES</h6>
-            <nav className="nav-home-aside">
-                <ul className="menu-category">
-                    {categorys.map(function (cat, index) {
-                        return (
-                            <li key={index}>
-                                <Link
-                                    to={"/danh-muc-san-pham/" + cat.id}
-                                    className="category-link"
-                                >
-                                    {cat.name}
-                                </Link>
-                            </li>
-                        );
-                    })}
+                            </div>
+                        })}
 
-                </ul>
-            </nav>
-        </>
+
+                    </ul>
+    
+            </div>
+        </div>
+        
     );
 }
 export default ListCategory;

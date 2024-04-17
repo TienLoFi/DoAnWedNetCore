@@ -29,12 +29,8 @@ function ProductEdit() {
 
   // xử lí nút thêm ảnh
   const handleButtonClick = () => {
-     // Nếu đã có ảnh trong cơ sở dữ liệu, không yêu cầu người dùng nhập nữa
-     if (currentImage) {
-      return;
-  }
-  const fileInput = document.getElementById("image");
-  fileInput.click();
+    const fileInput = document.getElementById("image");
+    fileInput.click();
   };
   useEffect(function () {
     (async function () {
@@ -278,24 +274,56 @@ function ProductEdit() {
                   />
                 </div>
                 <div className="form-group col-md-12 ">
-                  <label className="control-label">Ảnh sản phẩm</label>
-           <div className="form-group col-md-12">
-    <label className="control-label">Ảnh sản phẩm</label>
-    <div className="mb-3">
-        <label htmlFor="image">Hình</label>
-        <input type="file" id="image" name="image"    value={image}className="form-control"></input>
-    </div>
-    <div>
-        {currentImage && (
-            <img
-                src={currentImage}
-                alt="Product Image"
-                className="img-fluid"
-                style={{ width: "150px", height: "auto" }}
-            />
-        )}
-    </div>
-</div>
+                <label className="control-label">Ảnh Thương Hiệu</label>
+                  <div
+                    id="myfileupload"
+                    style={{
+                      position: "relative",
+                      overflow: "hidden",
+                      width: "150px",
+                    }}
+                  >
+                    <input
+                      type="file"
+                      id="image"
+                      name="image"
+                      className="form-control"
+                      onChange={handleFileChange}
+                      required
+                      style={{
+                        position: "absolute",
+                        top: "0",
+                        right: "0",
+                        width: "100%",
+                        height: "100%",
+                        opacity: "0",
+                        cursor: "pointer",
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-dark"
+                      style={{ position: "relative", zIndex: "1" }}
+                      onClick={handleButtonClick}
+                    >
+                      <i className="fas fa-cloud-upload-alt " /> Chọn ảnh{" "}
+                    </button>
+                  </div>
+
+                  <div id="thumbbox">
+                    {currentImage && (
+                      <div>
+                        <img
+                          src={currentImage} // Sử dụng đường dẫn hình ảnh hiện tại từ trạng thái
+                          alt="brand Image"
+                          className="img-fluid"
+                          style={{ width: "150px", height: "auto" }}
+                        />
+                        <a className="removeimg" href="javascript:" />
+                      </div>
+                    )}
+                  </div>
+
 
                   <div style={{ marginTop: "20px" }}>
                     <button type="submit" className="btn btn-save mr-2">

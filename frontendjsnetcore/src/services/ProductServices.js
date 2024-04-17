@@ -26,6 +26,11 @@ function getProductAll(limit, page){
     return httpAxios.get(`Products/GetAllProduct/${limit}/${page}`);
 }
 
+function getOrderAll(limit, page){
+    return httpAxios.get(`Products/GetAllOrder/${limit}/${page}`);
+}
+
+
 function getProductByCategoryParent(categoryIdParent,limit, page){
     return httpAxios.get(`Products/GetProductByCategoryParent/${categoryIdParent}/${limit}/${page}`);
 }
@@ -40,6 +45,9 @@ function GetProductSale(){
 function getProductHome(categoryId,limit,page){
     return httpAxios.get(`Products/GetProductByCategory/category/${categoryId}/${limit}/${page}`);
 }
+function getProductByBrandId(brandId,limit,page){
+    return httpAxios.get(`Products/GetProductByBrand/brand/${brandId}/${limit}/${page}`);
+}
 const ProductService ={
     
     getAll:getAll,
@@ -48,10 +56,12 @@ const ProductService ={
     update:update,
     remove:remove,
     getProductHome:getProductHome,
+    getProductByBrandId:getProductByBrandId,
     getProductAll:getProductAll,
     getProductByCategoryParent:getProductByCategoryParent,
     Search:Search,
-    GetProductSale:GetProductSale
+    GetProductSale:GetProductSale,
+    getOrderAll:getOrderAll
 }
 
 export default ProductService;

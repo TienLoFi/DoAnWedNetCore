@@ -43,6 +43,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Parent_Id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
         "Name": "Image",
         "Type": "System.String",
         "IsRequired": false
@@ -142,6 +147,11 @@
       {
         "Name": "Slug",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Parent_Id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
@@ -643,6 +653,37 @@
   },
   {
     "ContainingType": "BackendNetCoreApi.Controllers.ProductsController",
+    "Method": "GetAllOrder",
+    "RelativePath": "api/Products/GetAllOrder/{limit}/{page}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendNetCoreApi.Models.Product, BackendNetCoreApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendNetCoreApi.Controllers.ProductsController",
     "Method": "GetAllProduct",
     "RelativePath": "api/Products/GetAllProduct/{limit}/{page}",
     "HttpMethod": "GET",
@@ -689,6 +730,42 @@
     "ReturnTypes": [
       {
         "Type": "BackendNetCoreApi.Models.Product",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendNetCoreApi.Controllers.ProductsController",
+    "Method": "GetProductByBrand",
+    "RelativePath": "api/Products/GetProductByBrand/brand/{brandId}/{limit}/{page}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brandId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendNetCoreApi.Migrations.Products, BackendNetCoreApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -800,26 +877,6 @@
     "ContainingType": "BackendNetCoreApi.Controllers.ProductsController",
     "Method": "GetProducts",
     "RelativePath": "api/Products/GetProducts",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendNetCoreApi.Models.Product, BackendNetCoreApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BackendNetCoreApi.Controllers.ProductsController",
-    "Method": "GetSaledProducts",
-    "RelativePath": "api/Products/GetSaledProducts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

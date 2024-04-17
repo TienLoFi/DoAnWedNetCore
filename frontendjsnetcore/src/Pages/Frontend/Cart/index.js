@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { urlImageFE } from "../../../config";
 import Checkout from "../Cart/Checkout";
 import { Link } from "react-router-dom";
+
 const Cart = () => {
   const [cart, setCart] = useState([]);
 
@@ -15,7 +16,12 @@ const Cart = () => {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
-
+  const formatCurrency = (price) => {
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    }).format(price);
+  };
   const updateQuantity = (productId, newQuantity) => {
     const updatedCart = cart.map((item) => {
       if (item.id === productId) {
@@ -35,24 +41,24 @@ const Cart = () => {
 
   return (
     <>
-      {/* ========================= SECTION CONTENT ========================= */}
       <section className="section-content padding-y">
         <div className="container">
           <div className="row">
-            <main className="col-md-9">
+            <main className="col-md-8">
               <div className="card ">
                 {cart.length === 0 ? (
-                  <p className="text-danger">Không Có Sản Phẩm Trong Giỏ Hàng</p>
+                  <p className="text-danger">Giỏ hàng của bạn đang trống.<br/>
+                  Hãy chọn thêm sản phẩm để mua sắm nhé</p>
                 ) : (
                   <table className="table table-borderless table-shopping-cart">
                     <thead className="text-muted">
                       <tr className="small text-uppercase">
-                        <th scope="col">Product</th>
+                        <th scope="col"></th>
                         <th scope="col" width={120}>
-                          Quantity
+                         Số Lượng
                         </th>
                         <th scope="col" width={120}>
-                          Price
+                          Giá
                         </th>
                         <th scope="col" className="text-right" width={200}>
                           {" "}
@@ -70,17 +76,17 @@ const Cart = () => {
                                   alt={item.name}
                                   style={{
                                     width: "150px",
-                                    height: "150px",
+                                    height: "auto",
                                     objectFit: "cover",
                                   }}
                                 />
                               </div>
                               <figcaption className="info">
                                 <a href="#" className="title text-dark">
-                                  ${item.price.toLocaleString()}
+                                 < b>{item.name}</b>
                                 </a>
                                 <p className="text-muted small">
-                                  Size: XL, Color: blue, <br /> Brand: Gucci
+                               { item.description}
                                 </p>
                               </figcaption>
                             </figure>
@@ -104,22 +110,24 @@ const Cart = () => {
                           </td>
                           <td>
                             <div className="price-wrap">
-                              <var className="price">
-                                ${item.price.toLocaleString()}
-                              </var>
+                           
+  <var className="price">
+    đ{formatCurrency(item.price)}
+  </var>
+
+
                               <small className="text-muted">
                                 {" "}
-                                $315.20 each{" "}
+                                đ315.20 each{" "}
                               </small>
                             </div>{" "}
-                            {/* price-wrap .// */}
                           </td>
                           <td className="text-right">
                             <a
                               data-original-title="Save to Wishlist"
                               title=""
                               href=""
-                              className="btn btn-light"
+                              className="btn btn-danger mr-2"
                               data-toggle="tooltip"
                             >
                               {" "}
@@ -127,11 +135,11 @@ const Cart = () => {
                             </a>
                             <a
                               href="#"
-                              className="btn btn-light"
+                              className="btn btn-primary"
                               onClick={() => removeItem(item.id)}
                             >
                               {" "}
-                              Remove
+                              Xóa
                             </a>
                           </td>
                         </tr>
@@ -139,62 +147,58 @@ const Cart = () => {
                     </tbody>
                   </table>
                 )}
-                <div className="card-body border-top">
-                  <div className="btn float-md-right">
-                    <Checkout
-                      cart={cart}
-                      clearCart={clearCart}
-                      totalAmount={cart.reduce(
-                        (total, item) => total + item.price * item.quantity,
-                        0
-                      )}
-                    />
+                {cart.length > 0 && (
+                  <div className="card-body border-top">
+                    <div className="btn float-md-right">
+                      <Checkout
+                        cart={cart}
+                        clearCart={clearCart}
+                        totalAmount={cart.reduce(
+                          (total, item) => total + item.price * item.quantity,
+                          0
+                        )}
+                      />
+                    </div>
+                    <Link to="/" className="btn btn-light">
+                      {" "}
+                      <i className="fa fa-chevron-left" /> Tiếp Tục Mua Sắm
+                    </Link>
                   </div>
-                  <Link to="/" className="btn btn-light">
-                    {" "}
-                    <i className="fa fa-chevron-left" /> Tiếp Tục Mua Sắm
-                  </Link>
-                </div>
-              </div>{" "}
-              {/* card.// */}
+                )}
+              </div>
               <div className="alert alert-success mt-3">
                 <p className="icontext">
-                  <i className="icon text-success fa fa-truck" /> Free Delivery
-                  within 1-2 weeks
+                  <i className="icon text-success fa fa-truck" /> Miễn Phí Vận Chuyển Toàn Quốc
                 </p>
               </div>
-            </main>{" "}
-            {/* col.// */}
-            <aside className="col-md-3">
+            </main>
+            <aside className="col-md-4">
               <div className="card mb-3">
                 <div className="card-body">
                   <form>
                     <div className="form-group">
-                      <label>Have coupon?</label>
                       <div className="input-group">
                         <input
                           type="text"
                           className="form-control"
                           name=""
-                          placeholder="Coupon code"
+                          placeholder="Nhập Mã Giảm Giá"
                         />
                         <span className="input-group-append">
-                          <button className="btn btn-primary">Apply</button>
+                          <button className="btn btn-primary mt-1">Áp Dụng</button>
                         </span>
                       </div>
                     </div>
                   </form>
-                </div>{" "}
-                {/* card-body.// */}
-              </div>{" "}
-              {/* card .// */}
+                </div>
+              </div>
               <div className="card">
                 <div className="card-body">
                   <dl className="dlist-align">
-                    <dt>Total price:</dt>
+                    <dt>Tổng Giá:</dt>
                     <dd className="text-right">
                       {" "}
-                      $
+                      đ
                       {cart
                         .reduce(
                           (total, item) => total + item.price * item.quantity,
@@ -204,14 +208,14 @@ const Cart = () => {
                     </dd>
                   </dl>
                   <dl className="dlist-align">
-                    <dt>Discount:</dt>
+                    <dt> Giảm Giá:</dt>
                     <dd className="text-right">0%</dd>
                   </dl>
                   <dl className="dlist-align">
-                    <dt>Total:</dt>
+                    <dt>Tổng Thanh Toán:</dt>
                     <dd className="text-right h5">
                       <strong>
-                        $
+                        đ
                         {cart
                           .reduce(
                             (total, item) => total + item.price * item.quantity,
@@ -225,43 +229,12 @@ const Cart = () => {
                   <p className="text-center mb-3">
                     <img src="images/misc/payments.png" height={26} />
                   </p>
-                </div>{" "}
-                {/* card-body.// */}
-              </div>{" "}
-              {/* card .// */}
-            </aside>{" "}
-            {/* col.// */}
+                </div>
+              </div>
+            </aside>
           </div>
-        </div>{" "}
-        {/* container .//  */}
-      </section>
-      {/* ========================= SECTION CONTENT END// ========================= */}
-      {/* ========================= SECTION  ========================= */}
-      <section className="section-name border-top padding-y">
-        <div className="container">
-          <h6>Payment and refund policy</h6>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
         </div>
-        {/* container // */}
       </section>
-      {/* ========================= SECTION  END// ========================= */}
     </>
   );
 };

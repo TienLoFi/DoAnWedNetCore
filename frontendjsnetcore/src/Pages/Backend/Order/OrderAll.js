@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import OrderService from "../../../services/OrderServices";
 import Categoryservice from "../../../services/CategoryServices";
+import ProductService from "../../../services/ProductServices";
 
 function OrderAll() {
-  const [orders, setOrders] = useState([]);
-  const [statusdel, setStatusDel] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+  const [orders, setOrders] = useState([]); // Danh sách sản phẩm trên trang hiện tại
+  const [pageData, setPageData] = useState({}); // Lưu trạng thái của từng trang
+  const [limit, setLimit] = useState(1); // Giới hạn dữ liệu mỗi trang
+  const [page, setPage] = useState(1); // Trang hiện tại
+  const [totalPages, setTotalPages] = useState(1); // Tổng số trang
+  const [showModal, setShowModal] = useState(false);  
   const [orderIdToDelete, setOrderIdToDelete] = useState(null);
-  const [selectedOrder, setSelectedOrder] = useState(null); // State để lưu thông tin Đơn Hàng được chọn
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [statusdel, setStatusDel] = useState(0);
   // -------------------------------------------------------------------
 
   // Xử lý sự kiện click vào nút "Xem"
@@ -57,6 +62,38 @@ function OrderAll() {
       });
     })();
   }, []);
+
+  useEffect(() => {
+    if (!pageData[page]) {
+      async function fetchOrdersWithPagination() {
+        try {
+          const result = await ProductService.getOrderAll(limit, page);
+          const data = result.data;
+          setOrders(data);
+          setPageData((prevPageData) => ({
+            ...prevPageData,
+            [page]: data,
+          }));
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      fetchOrdersWithPagination();
+    } else {
+      setOrders(pageData[page]);
+    }
+  }, [page, limit, pageData]);
+
+  // Tính tổng số trang
+  useEffect(() => {
+    setTotalPages(Math.ceil(orders.length / limit));
+  }, [orders, limit]);
+
+  // Xử lý thay đổi trang
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
+
   return (
     <>
       {/* danh sach san pham  */}
@@ -231,67 +268,50 @@ function OrderAll() {
                   </tbody>
                 </table>
                 {/* phân trang------------------------ */}
-                <div className="row">
-                  <div className="col-sm-12 col-md-5">
-                    <div
-                      className="dataTables_info"
-                      id="sampleTable_info"
-                      role="status"
-                      aria-live="polite"
-                    >
-                      Hiện 1 đến 7 của 7 danh mục
-                    </div>
-                  </div>
-                  <div className="col-sm-12 col-md-7">
-                    <div
-                      className="dataTables_paginate paging_simple_numbers"
-                      id="sampleTable_paginate"
-                    >
-                      <ul className="pagination">
-                        <li
-                          className="paginate_button page-item previous disabled"
-                          id="sampleTable_previous"
+                <div className="row ">
+                  <div className="col-md-12">
+                    <ul className="pagination justify-content-end m-3">
+                      <li className="page-item">
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(page - 1)}
+                          disabled={page === 1}
                         >
-                          <a
-                            href="#"
-                            aria-controls="sampleTable"
-                            data-dt-idx={0}
-                            tabIndex={0}
-                            className="page-link"
-                          >
-                            Lùi
-                          </a>
-                        </li>
-                        <li className="paginate_button page-item active">
-                          <a
-                            href="#"
-                            aria-controls="sampleTable"
-                            data-dt-idx={1}
-                            tabIndex={0}
-                            className="page-link"
-                          >
-                            1
-                          </a>
-                        </li>
-                        <li
-                          className="paginate_button page-item next disabled"
-                          id="sampleTable_next"
+                          Lùi{" "}
+                        </button>
+                      </li>
+                      <li className={`page-item ${page === 1 ? "active" : ""}`}>
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(1)}
+                          disabled={page === 1}
                         >
-                          <a
-                            href="#"
-                            aria-controls="sampleTable"
-                            data-dt-idx={2}
-                            tabIndex={0}
-                            className="page-link"
-                          >
-                            Tiếp
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                          1
+                        </button>
+                      </li>
+                      <li className={`page-item ${page === 2 ? "active" : ""}`}>
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(2)}
+                          disabled={page === 2}
+                        >
+                          2
+                        </button>
+                      </li>
+                  
+                      <li className="page-item">
+                        <button
+                          className="page-link"
+                          onClick={() => handlePageChange(page + 1)}
+                          disabled={orders.length < limit} // Disable nút khi hết sản phẩm
+                        >
+                      Tiếp
+                        </button>
+                      </li>
+                    </ul>
                   </div>
-                  {/* end phân trang */}
                 </div>
+                {/* end phân trang */}
               </div>
             </div>
           </div>

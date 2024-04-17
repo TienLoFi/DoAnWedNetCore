@@ -13,6 +13,7 @@ namespace BackendNetCoreApi.Models
         [Column(TypeName = "nvarchar(1000)")]
         public string? Slug { get; set; }
         [Column(TypeName = "nvarchar(1000)")]
+        public int? Parent_Id { get; set; }
         public string? Image { get; set; }
         public int? Sort_order { get; set; }
         [Column(TypeName = "nvarchar(1000)")]

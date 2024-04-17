@@ -9,12 +9,68 @@
       "PackagePath": "staticwebassets\\images\\brands\\949ec7a8e58ebab1b4c16f0c027e6733.jpg"
     },
     {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Acer_Inc.-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Acer_Inc.-Logo.wine.png"
+    },
+    {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\AdobeStock_553860129.jpeg",
       "PackagePath": "staticwebassets\\images\\brands\\AdobeStock_553860129.jpeg"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Annotation 2023-05-18 151242_preview_rev_1.png",
       "PackagePath": "staticwebassets\\images\\brands\\Annotation 2023-05-18 151242_preview_rev_1.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Apple.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\Apple.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Apple_Inc.-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Apple_Inc.-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Asus.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Asus.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Dell-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Dell-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Gigabyte_Technology-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Gigabyte_Technology-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Intel-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Intel-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\JBL-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\JBL-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Marshall.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Marshall.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\OPPO_LOGO_2019.png",
+      "PackagePath": "staticwebassets\\images\\brands\\OPPO_LOGO_2019.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Oppo-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Oppo-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Oppo.jpg",
+      "PackagePath": "staticwebassets\\images\\brands\\Oppo.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Samsung-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Samsung-Logo.wine.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\Sony-Logo.wine.png",
+      "PackagePath": "staticwebassets\\images\\brands\\Sony-Logo.wine.png"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\b4.jpg",
@@ -27,6 +83,18 @@
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\bà tuyết 1.jpg",
       "PackagePath": "staticwebassets\\images\\brands\\bà tuyết 1.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\logo2.png",
+      "PackagePath": "staticwebassets\\images\\brands\\logo2.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\samsung.png",
+      "PackagePath": "staticwebassets\\images\\brands\\samsung.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\brands\\vivo.png",
+      "PackagePath": "staticwebassets\\images\\brands\\vivo.png"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\iphone-13_2_.webp",
@@ -45,8 +113,20 @@
       "PackagePath": "staticwebassets\\images\\oppo-f9-red-600x600.jpg"
     },
     {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\0019345_ipad-air-5-wifi-cellular-64gb.png",
+      "PackagePath": "staticwebassets\\images\\products\\0019345_ipad-air-5-wifi-cellular-64gb.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\10186_2.png",
+      "PackagePath": "staticwebassets\\images\\products\\10186_2.png"
+    },
+    {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\10b6791f8ef672a8a75834bdae1403ec.jpg",
       "PackagePath": "staticwebassets\\images\\products\\10b6791f8ef672a8a75834bdae1403ec.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\250-25392-25341-14900k.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\250-25392-25341-14900k.jpg"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\2_hinh-nen-pc-4k.png",
@@ -59,6 +139,10 @@
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\350.jfif",
       "PackagePath": "staticwebassets\\images\\products\\350.jfif"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\5041-pc-asus-gr701-h--ng.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\5041-pc-asus-gr701-h--ng.jpg"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\8baa5bb80ce306685aa46505ed299153.png",
@@ -89,12 +173,96 @@
       "PackagePath": "staticwebassets\\images\\products\\IMG_20230604_131632.jpg"
     },
     {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\a03s.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\a03s.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\a72.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\a72.jpg"
+    },
+    {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\anh-anime-co-trang-1.jpg",
       "PackagePath": "staticwebassets\\images\\products\\anh-anime-co-trang-1.jpg"
     },
     {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\apple-watch-series-3-nike-spost-42mm-nhom-gps_0d3dcec8-2a8b-48ba-a562-1ccc71407afc.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\apple-watch-series-3-nike-spost-42mm-nhom-gps_0d3dcec8-2a8b-48ba-a562-1ccc71407afc.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\asus.png",
+      "PackagePath": "staticwebassets\\images\\products\\asus.png"
+    },
+    {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\b4.jpg",
       "PackagePath": "staticwebassets\\images\\products\\b4.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\clothes-2.png",
+      "PackagePath": "staticwebassets\\images\\products\\clothes-2.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\iphone-12d.webp",
+      "PackagePath": "staticwebassets\\images\\products\\iphone-12d.webp"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\iphone-15-pro-max-blue-thumbnew-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\iphone-15-pro-max-blue-thumbnew-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\iphone-x-256gb-silver-400x400.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\iphone-x-256gb-silver-400x400.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\iphone11a.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\iphone11a.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\iphone11b.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\iphone11b.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\iphone13a.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\iphone13a.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\laptop-png-from-pngfre-8.png",
+      "PackagePath": "staticwebassets\\images\\products\\laptop-png-from-pngfre-8.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\loa-Marshall-Emberton.png",
+      "PackagePath": "staticwebassets\\images\\products\\loa-Marshall-Emberton.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\loa-bluetooth-jbl-boombox.png",
+      "PackagePath": "staticwebassets\\images\\products\\loa-bluetooth-jbl-boombox.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\loa_jbl_go_3_xanh_1623499931.png",
+      "PackagePath": "staticwebassets\\images\\products\\loa_jbl_go_3_xanh_1623499931.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\oppad.png",
+      "PackagePath": "staticwebassets\\images\\products\\oppad.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\oppo-a3s-32gb-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\oppo-a3s-32gb-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\oppo-f9-red-600x600.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\oppo-f9-red-600x600.jpg"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\pos-marshall-speakers-kilburn-ii-trang.png",
+      "PackagePath": "staticwebassets\\images\\products\\pos-marshall-speakers-kilburn-ii-trang.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\unnamed.png",
+      "PackagePath": "staticwebassets\\images\\products\\unnamed.png"
+    },
+    {
+      "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\products\\vn-galaxy-watch4-398976-sm-r870nzsaxxv-thumb-481128245.png",
+      "PackagePath": "staticwebassets\\images\\products\\vn-galaxy-watch4-398976-sm-r870nzsaxxv-thumb-481128245.png"
     },
     {
       "Id": "D:\\Workspace\\WED\\ASP.NET\\DoAnAsp\\BackendNetCoreApi\\BackendNetCoreApi\\wwwroot\\images\\samsung-galaxy-m14.webp",
